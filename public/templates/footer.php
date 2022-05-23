@@ -75,33 +75,20 @@
               <li>
                 <a href="#">Сочи</a>
               </li>
-              <li>
-                <a href="#">Адлер</a>
-              </li>
-              <li>
-                <a href="#" title="Все города">
-                  <strong>Все города</strong>
-                </a>
-              </li>
             </ul>
             <ul class="footer-linksBlock">
               <li>
-                <a href="#">Россия</a>
+                <a href="index.php?page=catalog&city_category=all">Каталог отелей</a>
               </li>
               <li>
                 <a href="#">Крым</a>
               </li>
               <li>
-                <a href="#">Турция</a>
+                <a href="#">Адлер</a>
               </li>
               <li>
                 <a href="#">
-                  Абхазия
-                </a>
-              </li>
-              <li>
-                <a href="#" title="Все страны">
-                  <strong>Все страны</strong>
+                  Нижний Новгород
                 </a>
               </li>
             </ul>

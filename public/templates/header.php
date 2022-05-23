@@ -20,21 +20,21 @@
   <link rel="shortcut icon" href="./public/favicon.png" type="image/x-icon" />
   <link rel="stylesheet" href="./src/css/global.css" />
   <?php
-  if ($_GET['page'] == 'shop')
+  if ($_GET['page'] == 'catalog')
     // echo '<link rel="stylesheet" href="./src/css/products.css">';
   ?>
   <!-- <link rel="stylesheet" href="./src/css/header.css" />
   <link rel="stylesheet" href="./src/css/footer.css" />
   <link rel="stylesheet" href="./src/css/basket.css" /> -->
   <?php
-if ($_GET['page'] == 'openCard')
+if ($_GET['page'] == 'hotel')
   // echo '<link rel="stylesheet" href="./src/css/product.css" />';
   ?>
   <?php
 if ($_GET['page'] == 'profile' || $_GET['page'] == 'admin' || $_GET['page'] == 'register')
   // echo '<link rel="stylesheet" href="./src/css/auth.css" />';
   ?>
-  <script defer src="./src/js/basket.js"></script>
+  <!-- <script defer src="./src/js/basket.js"></script> -->
   <script defer src="./src/js/jquery.js"></script>
   <script defer src="./src/js/site.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -59,7 +59,7 @@ if ($_GET['page'] == 'profile' || $_GET['page'] == 'admin' || $_GET['page'] == '
             <span class="header-location-counter">Отели и гостиницы</span>
           </a>
         </div>
-        <a class="logo logo_header" href="#" title="Поиск и бронирование отелей">
+        <a class="logo logo_header" href="index.php?page=index" title="Поиск и бронирование отелей">
           <img src="./src/images/logo/logo.png" width="135" height="75" alt="GuestHouse" />
         </a>
         <div class="header-form-area">
@@ -68,42 +68,20 @@ if ($_GET['page'] == 'profile' || $_GET['page'] == 'admin' || $_GET['page'] == '
             Забронируйте номер по выгодной цене!
           </div>
           <div class="form-wrap form-wrap_line">
-            <form class="form form_line" action="" method="get" target="_blank">
+            <form class="form form_line" action="index.php?page=catalog&search=query" method="get" target="_self">
               <ul class="form-list">
                 <li class="form-item form-autocomplete ui-front">
                   <div class="hlf-input hlf-input--ac">
-                    <input type="text" placeholder="Укажите город, отель или место" tabindex="31" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="ui-autocomplete-input" />
+                    <input type="text" name="search" placeholder="Укажите город, отель или место" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="ui-autocomplete-input" />
                     <div class="icon-load"></div>
-                    <i class="icon-close"></i>
+                    <i class="fa-solid fa-xmark"></i>
                     <div class="hint">
                       Введите, пожалуйста, название города или отеля
                     </div>
                   </div>
                 </li>
-                <li class="form-item form-datepicker">
-                  <div class="hlf-input hlf-input--calendar">
-                    <input type="text" placeholder="Прибытие" tabindex="32" height="60" />
-                    <input type="text" class="datepicker-hidden hasDatepicker" id="dp1652801999505" />
-
-                    <div class="hint"></div>
-                    <div class="pseudo-placeholder">
-                      Прибытие
-                    </div>
-                  </div>
-                </li>
-                <li class="form-item form-datepicker">
-                  <div class="hlf-input hlf-input--calendar">
-                    <input type="text" placeholder="Выезд" tabindex="33" height="60" />
-                    <input type="text" class="datepicker-hidden hasDatepicker" id="dp1652801999506" />
-
-                    <div class="hint"></div>
-                    <div class="pseudo-placeholder">
-                      Выезд
-                    </div>
-                  </div>
-                </li>
                 <li class="form-item form-submit">
-                  <button tabindex="35">
+                  <button>
                     Поиск
                   </button>
                 </li>

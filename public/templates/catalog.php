@@ -8,14 +8,14 @@
               <div class="line__picture-block line__left"></div>
               <div class="block__line"></div>
               <div class="line__picture-block line__right"></div>
-            </div>
+            </div> 
           </div>
         </div>
       </div>
     </div>
     <div class="container__header-block">
       <div class="header-block__inner-block">
-        <h3 class="header-text">Меню доставки еды</h3>
+        <h3 class="header-text">Каталог отелей</h3>
       </div>
     </div>
     <div class="container__products-block">
@@ -23,18 +23,18 @@
         <div class="products-block__inner-block">
           <div class="products-block__categories-list">
             <div class="store-switch__wrapper">
-              <a href="index.php?page=shop&prod_category=all" class="store-switch__btn-link__item">
-                Все
+              <a href="index.php?page=catalog&city_category=all" class="store-switch__btn-link__item">
+                Все города
               </a>
               <?php
-              $query = 'Select * from categories';
+              $query = 'Select * from cities';
               $result = mysqli_query($link, $query);
               for (; $row = mysqli_fetch_assoc($result);) {
-                $categoryName = $row['name_category'];
-                $categoryId = $row['id_category'];
+                $cityId = $row['id_city'];
+                $city = $row['name_city'];
               ?>
-                <a href="index.php?page=shop&prod_category=<?php echo $categoryId; ?>" class="store-switch__btn-link__item">
-                  <?php echo $categoryName; ?>
+                <a href="index.php?page=catalog&city_category=<?php echo $cityId; ?>" class="store-switch__btn-link__item">
+                  <?php echo $city; ?>
                 </a>
               <?php
               }
@@ -45,63 +45,63 @@
             <form action="">
               Сортировка
               <?php
-                $categoryId = $_GET['prod_category'];
+              $cityId = $_GET['city_category'];
               ?>
               <select onchange="location=value">
-                <option value="" selected="selected">Сортировка по имени</option>
+                <option value="" selected="selected">Сортировать по популярности</option>
                 <option <?php
                         if (!$_GET['sort_price']) {
-                          if (!$categoryId)
-                            echo 'value="index.php?page=shop&sort_name=asc&prod_category=all"';
+                          if (!$cityId)
+                            echo 'value="index.php?page=catalog&sort_rating=asc&city_category=all"';
                           else
-                            echo 'value="index.php?page=shop&sort_name=asc&prod_category='.$categoryId.'"';
+                            echo 'value="index.php?page=catalog&sort_rating=asc&city_category=' . $cityId . '"';
                         } else {
-                          if (!$categoryId)
-                            echo 'value="index.php?page=shop&sort_name=asc&prod_category=all"';
+                          if (!$cityId)
+                            echo 'value="index.php?page=catalog&sort_rating=asc&city_category=all"';
                           else
-                            echo 'value="index.php?page=shop&sort_name=asc&prod_category='.$categoryId.'"';
+                            echo 'value="index.php?page=catalog&sort_rating=asc&city_category=' . $cityId . '"';
                         }
-                        ?>>A-Z</option>     
+                        ?>>от менее популярного</option>
                 <option <?php
                         if (!$_GET['sort_price']) {
-                          if (!$categoryId)
-                            echo 'value="index.php?page=shop&sort_name=desc&prod_category=all"';
+                          if (!$cityId)
+                            echo 'value="index.php?page=catalog&sort_rating=desc&city_category=all"';
                           else
-                            echo 'value="index.php?page=shop&sort_name=desc&prod_category='.$categoryId.'"';
+                            echo 'value="index.php?page=catalog&sort_rating=desc&city_category=' . $cityId . '"';
                         } else {
-                          if (!$categoryId)
-                            echo 'value="index.php?page=shop&sort_name=desc&prod_category=all"';
+                          if (!$cityId)
+                            echo 'value="index.php?page=catalog&sort_rating=desc&city_category=all"';
                           else
-                            echo 'value="index.php?page=shop&sort_name=desc&prod_category='.$categoryId.'"';
+                            echo 'value="index.php?page=catalog&sort_rating=desc&city_category=' . $cityId . '"';
                         }
-                        ?>>Z-A</option>
+                        ?>>от более популярного</option>
               </select>
               <select onchange="location=value">
-                <option value="" selected="selected">Сортировка по цене</option>
+                <option value="" selected="selected">Сортировать по цене</option>
                 <option <?php
-                        if (!$_GET['sort_name']) {
-                          if (!$categoryId)
-                            echo 'value="index.php?page=shop&sort_price=asc&prod_category=all"';
+                        if (!$_GET['sort_rating']) {
+                          if (!$cityId)
+                            echo 'value="index.php?page=catalog&sort_price=asc&city_category=all"';
                           else
-                            echo 'value="index.php?page=shop&sort_price=asc&prod_category='.$categoryId.'"';
+                            echo 'value="index.php?page=catalog&sort_price=asc&city_category=' . $cityId . '"';
                         } else {
-                          if (!$categoryId)
-                            echo 'value="index.php?page=shop&sort_price=asc&prod_category=all"';
+                          if (!$cityId)
+                            echo 'value="index.php?page=catalog&sort_price=asc&city_category=all"';
                           else
-                            echo 'value="index.php?page=shop&sort_price=asc&prod_category='.$categoryId.'"';
+                            echo 'value="index.php?page=catalog&sort_price=asc&city_category=' . $cityId . '"';
                         }
                         ?>>По возрастанию</option>
                 <option <?php
-                        if (!$_GET['sort_name']) {
-                          if (!$categoryId)
-                            echo 'value="index.php?page=shop&sort_price=desc&prod_category=all"';
+                        if (!$_GET['sort_rating']) {
+                          if (!$cityId)
+                            echo 'value="index.php?page=catalog&sort_price=desc&city_category=all"';
                           else
-                            echo 'value="index.php?page=shop&sort_price=desc&prod_category='.$categoryId.'"';
+                            echo 'value="index.php?page=catalog&sort_price=desc&city_category=' . $cityId . '"';
                         } else {
-                          if (!$categoryId)
-                            echo 'value="index.php?page=shop&sort_price=desc&prod_category=all"';
+                          if (!$cityId)
+                            echo 'value="index.php?page=catalog&sort_price=desc&city_category=all"';
                           else
-                            echo 'value="index.php?page=shop&sort_price=desc&prod_category='.$categoryId.'"';
+                            echo 'value="index.php?page=catalog&sort_price=desc&city_category=' . $cityId . '"';
                         }
                         ?>>По убыванию</option>
               </select>
@@ -109,66 +109,122 @@
           </div>
           <div class="products__flex-block">
             <?php
-            if (!$_GET['sort_name'] && !$_GET['sort_price']) {
-              $query = 'select * from products';
-              if ($_GET['prod_category'] != 'all')
-                $query .= " where category_product = " . $_GET['prod_category'];
+            if (!$_GET['sort_rating'] && !$_GET['sort_price']) {
+              $query = 'select * from hotels';
+              if ($_GET['city_category'] != 'all')
+                $query .= " where location_hotel = " . $_GET['city_category'];
             } else {
-              if ($_GET['sort_name'] && !$_GET['sort_price']) {
-                if ($_GET['prod_category'] != 'all') {
-                  $query = 'select * from products where category_product = '.$_GET['prod_category'].' order by name_product ' . $_GET['sort_name'] . ';';
+              if ($_GET['sort_rating'] && !$_GET['sort_price']) {
+                if ($_GET['city_category'] != 'all') {
+                  $query = 'select * from hotels where location_hotel = ' . $_GET['city_category'] . ' order by rating_hotel ' . $_GET['sort_rating'] . ';';
                 } else
-                  $query = 'select * from products order by name_product ' . $_GET['sort_name'] . ';';
-              } elseif (!$_GET['sort_name'] && $_GET['sort_price']) {
-                if ($_GET['prod_category'] != 'all') {
-                  $query = 'select * from products where category_product = '.$_GET['prod_category'].' order by price_product ' . $_GET['sort_price'] . ';';
+                  $query = 'select * from hotels order by rating_hotel ' . $_GET['sort_rating'] . ';';
+              } elseif (!$_GET['sort_rating'] && $_GET['sort_price']) {
+                if ($_GET['city_category'] != 'all') {
+                  $query = 'select * from hotels where location_hotel = ' . $_GET['city_category'] . ' order by priceFrom_hotel ' . $_GET['sort_price'] . ';';
                 } else
-                  $query = 'select * from products order by price_product ' . $_GET['sort_price'] . ';';
+                  $query = 'select * from hotels order by priceFrom_hotel ' . $_GET['sort_price'] . ';';
               } else {
-                if ($_GET['prod_category'] != 'all') {
-                  $query = '(select * from products where category_product = '.$_GET['prod_category'].' order by name_product ' . $_GET['sort_name'] . ') order by price_product ' . $_GET['sort_price'] . ';';
+                if ($_GET['city_category'] != 'all') {
+                  $query = '(select * from hotels where location_hotel = ' . $_GET['city_category'] . ' order by rating_hotel ' . $_GET['sort_rating'] . ') order by priceFrom_hotel ' . $_GET['sort_price'] . ';';
                 } else
-                $query = '(select * from products order by name_product ' . $_GET['sort_name'] . ') order by price_product ' . $_GET['sort_price'] . ';';
+                  $query = '(select * from hotels order by rating_hotel ' . $_GET['sort_rating'] . ') order by priceFrom_hotel ' . $_GET['sort_price'] . ';';
               }
             }
             $result = mysqli_query($link, $query);
             for (; $row = mysqli_fetch_assoc($result);) {
-              $productId = $row['id_product'];
-              $productName = $row['name_product'];
-              $productCategory = $row['category_product'];
-              $productDescription = $row['description_product'];
-              $productPathImage = $row['image_path_product'];
-              $productPrice = $row['price_product'];
-              echo '<div class="product__container-block">';
-              echo '<a href="index.php?page=openCard&productId=' . $productId . '">';
-              echo '<div class="container-block__image">';
-              echo '<div class="product__image" style="background-image: url(' . $productPathImage . ');"></div>';
-              echo '</div>';
-              echo '<div class="product__card-description">';
-              echo '<div class="card__header-text">';
-              echo $productName;
-              echo '</div>';
-              echo '<div class="card__description-text">';
-              echo $productDescription;
-              echo '</div>';
-              echo '<div class="card__price-wrapper">';
-              echo '<div class="card__price-text">';
-              echo '<div class="product__price">';
-              echo $productPrice;
-              echo '</div>';
-              echo '<div class="price__currency">р.</div>';
-              echo '</div>';
-              echo '</div>';
-              echo '</div>';
-              echo '</a>';
-              echo '<div style="margin: 70px 0 0 0;">';
-              echo '<div class="card__basket-wrapper">';
-              echo '<a href="index.php?page=openCard&productId=' . $productId . '" class="basket__btn">';
-              echo '<span class="card__btn-text">Подробнее</span>';
-              echo '</a>';
-              echo '</div>';
-              echo '</div>';
-              echo '</div>';
+              $idHotel = $row['id_hotel'];
+              $fullNameHotel = $row['fullName_hotel'];
+              $locationHotel = $row['location_hotel'];
+              $descriptionHotel = $row['description_hotel'];
+              $imageHotel = $row['image_hotel'];
+              $priceFromHotel = $row['priceFrom_hotel'];
+              $ratingHotel = $row['rating_hotel'];
+              $starsHotel = $row['stars_hotel'];
+            ?>
+              <div class="card card-card_discount card-card_border">
+                <div class="card-inner">
+                  <div class="card-discount">
+                    <!-- <span class="value">Cкидка discount% </span> -->
+                  </div>
+                  <div class="card-info">
+                    <span class="card-stars">
+                      <?php
+                      for ($i = 0; $i < $starsHotel; $i++) {
+                        echo '<i class="fa-solid fa-star"></i>';
+                      }
+                      ?>
+                    </span>
+                    <div class="card-reviews">Хороший отель</div>
+                    <div class="card-location-wrap">
+                      <span class="card-location">
+                        <i class="card-location-icon icon-location"></i>
+                        <span class="card-location-text">
+                          1.5 км до центра Верхнее Джемете
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="card-image-area">
+                    <span class="card-rating card-rating_good">
+                      <span class="card-rating-text">Рейтинг&nbsp;</span>
+                      <span class="card-rating-value"><?= $ratingHotel ?></span>
+                    </span>
+                    <a href="#">
+                      <span class="card-name"><?= $fullNameHotel ?></span>
+                      <span class="card-image">
+                        <?= '<img width="372" height="319" style="height: 100%" src="data:image/jpeg;base64,' . base64_encode($imageHotel) . '"/>' ?>
+                      </span>
+                    </a>
+                    <span class="card-price card-price--discount">
+                      <span class="card-price-text">
+                        От&nbsp;
+                        <b>
+                          <span data-role="currency">
+                            <?= $priceFromHotel ?> ₽
+                          </span>
+                        </b>
+                      </span>
+                    </span>
+                  </div>
+                  <div class="card-form-area">
+                    <form class="card-form form_mini" action="" method="get">
+                      <div class="card-form-field-wrap">
+                        <label class="card-form-field-label">Прибытие</label>
+                        <div class="card-form-field card-form-field_date">
+                          <div class="hlf-input hlf-input--calendar">
+                            <input type="text" placeholder="Прибытие" height="60" />
+                            <input type="text" class="datepicker-hidden hasDatepicker" id="dp1652801999509" />
+
+                            <div class="hint"></div>
+                            <div class="pseudo-placeholder">Прибытие</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-form-field-wrap">
+                        <label class="card-form-field-label">Выезд</label>
+                        <div class="card-form-field card-form-field_date">
+                          <div class="hlf-input hlf-input--calendar">
+                            <input type="text" placeholder="Выезд" height="60" />
+                            <input type="text" class="datepicker-hidden hasDatepicker" id="dp1652801999510" />
+
+                            <div class="hint" hlf-role="hint"></div>
+                            <div class="pseudo-placeholder" hlf-role="placeholder">
+                              Выезд
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-form-field-wrap">
+                        <div class="card-form-field card-form-field_submit">
+                          <button>Узнать цены</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            <?php
             }
             ?>
           </div>

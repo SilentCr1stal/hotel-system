@@ -11,11 +11,11 @@ $page = $_GET['page'];
 
 if (!isset($page) || $page == 'index')
   require_once './public/templates/main.php';
-elseif ($page == 'shop') {
-  $sql = mysqli_query($link, "SELECT * FROM products");
+elseif ($page == 'catalog') {
+  // $sql = mysqli_query($link, 'select * from hotels');
   require_once './public/templates/catalog.php';
-} elseif ($page == 'openCard')
-  require_once './public/templates/openCard.php';
+} elseif ($page == 'hotel')
+  require_once './public/templates/hotel.php';
   // Регистрация и авторизация
 elseif ($page == 'profile')
   require './public/authorization/index.php';
