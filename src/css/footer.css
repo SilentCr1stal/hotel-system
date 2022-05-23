@@ -1,0 +1,41 @@
+.wrapper__contentPage .footer {
+  margin: 10px 0 0 0;
+  padding: 60px 0;
+  background: #ffffff; }
+  .wrapper__contentPage .footer__inner-block {
+    padding: 0 70px; }
+    .wrapper__contentPage .footer__inner-block h4 {
+      margin: 0 0 20px 0;
+      font-family: "Roboto";
+      font-size: 18px;
+      font-weight: 400;
+      color: #252424; }
+    .wrapper__contentPage .footer__inner-block li {
+      padding: 8px 0; }
+      .wrapper__contentPage .footer__inner-block li a {
+        font-family: "Roboto";
+        font-size: 18px;
+        font-weight: 400;
+        color: #554f4f;
+        padding: 5px 0; }
+    .wrapper__contentPage .footer__inner-block .footer__social-media-block .footer-icons {
+      padding: 10px 0 0 0; }
+      .wrapper__contentPage .footer__inner-block .footer__social-media-block .footer-icons a {
+        padding: 0 15px 0 0; }
+        .wrapper__contentPage .footer__inner-block .footer__social-media-block .footer-icons a i {
+          color: #000000;
+          font-size: 32px; }
+    .wrapper__contentPage .footer__inner-block .footer__catalog-block li {
+      padding: 3px 0 0 0; }
+    .wrapper__contentPage .footer__inner-block .footer__catalog-block .list__catalog-block {
+      margin: 0 0 25px 0; }
+    .wrapper__contentPage .footer__inner-block .footer__catalog-block .input-block {
+      position: relative; }
+      .wrapper__contentPage .footer__inner-block .footer__catalog-block .input-block input {
+        padding: 7px 15px;
+        width: 100%; }
+      .wrapper__contentPage .footer__inner-block .footer__catalog-block .input-block i {
+        position: absolute;
+        top: 25%;
+        right: 10px;
+        font-size: 20px; }

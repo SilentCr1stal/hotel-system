@@ -1,0 +1,220 @@
+@charset "UTF-8";
+html {
+  font-family: "Noto Serif Display", serif;
+  font-family: "Roboto", sans-serif;
+  font-family: "Indie Flower", cursive;
+  font-family: "Comfortaa", cursive;
+  width: 100%;
+  height: 100%; }
+body {
+  width: 100%; }
+
+a,
+a:visited {
+  text-decoration: none;
+  color: #000000; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+button {
+  outline: none; }
+
+.wrapper__contentPage .main-content-page__wrapper .carousel {
+  margin: 0 0 40px 0; }
+  .wrapper__contentPage .main-content-page__wrapper .carousel-inner .carousel-item {
+    max-height: 590px; }
+    .wrapper__contentPage .main-content-page__wrapper .carousel-inner .carousel-item img {
+      object-fit: cover;
+      object-position: center 100%;
+      filter: brightness(50%); }
+    .wrapper__contentPage .main-content-page__wrapper .carousel-inner .carousel-item .carousel__headerImage-text {
+      font-family: "Roboto";
+      font-size: 44px;
+      font-weight: 700;
+      color: #ffecec; }
+      .wrapper__contentPage .main-content-page__wrapper .carousel-inner .carousel-item .carousel__headerImage-text,
+      .wrapper__contentPage .main-content-page__wrapper .carousel-inner .carousel-item .carousel__headerImage-text + p {
+        text-shadow: 0 0 5px #000000ff; }
+    .wrapper__contentPage .main-content-page__wrapper .carousel-inner .carousel-item p {
+      font-family: "Roboto";
+      font-size: 20px;
+      font-weight: 400;
+      color: #f3f1f1; }
+    .wrapper__contentPage .main-content-page__wrapper .carousel-inner .carousel-item:nth-child(1) .carousel-caption {
+      max-width: 450px;
+      height: auto;
+      left: 50%;
+      top: 40%;
+      transform: translateX(-50%); }
+      .wrapper__contentPage .main-content-page__wrapper .carousel-inner .carousel-item:nth-child(1) .carousel-caption .carousel__headerImage-text {
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-image: radial-gradient(circle, #ffc626 0%, #ffce52 7%, #ffb71d 11%, #ffb71d 11%, #ffac17 14%, #ff8200 56%, #ff8b05 75%, #ff7d14 85%, #ff723f 100%);
+        background-image: -webkit-radial-gradient(circle, #ffc626 0%, #ffc123 7%, #ffb71d 11%, #ffb71d 11%, #ffac17 14%, #ff8200 56%, #ff8b05 75%, #ff7d14 85%, #ff723f 100%);
+        text-shadow: none; }
+      .wrapper__contentPage .main-content-page__wrapper .carousel-inner .carousel-item:nth-child(1) .carousel-caption p {
+        margin: 0 0 30px 0; }
+      .wrapper__contentPage .main-content-page__wrapper .carousel-inner .carousel-item:nth-child(1) .carousel-caption .reserve {
+        padding: 10px 25px;
+        font-family: "Noto Serif Display";
+        font-size: 24px;
+        font-weight: 700;
+        color: #ec5e00;
+        border-color: #ec5e00; }
+    .wrapper__contentPage .main-content-page__wrapper .carousel-inner .carousel-item:nth-child(3) .carousel-caption {
+      max-width: 450px;
+      height: auto;
+      left: 10%;
+      top: 40%; }
+    .wrapper__contentPage .main-content-page__wrapper .carousel-inner .carousel-item:nth-child(4) .carousel-caption {
+      max-width: 450px;
+      height: auto;
+      left: auto;
+      top: 40%;
+      right: 10%; }
+
+.wrapper__contentPage .main-content-page__wrapper .content__pageProducts .pageProducts__header-block {
+  padding: 5px 0 15px 40px;
+  display: flex;
+  justify-content: center; }
+  .wrapper__contentPage .main-content-page__wrapper .content__pageProducts .pageProducts__header-block .header-text {
+    font-family: "Roboto";
+    font-size: 28px;
+    font-weight: 900;
+    color: #201e1e; }
+  .wrapper__contentPage .main-content-page__wrapper .content__pageProducts .pageProducts__header-block .text {
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 100;
+    color: #201e1e; }
+
+.wrapper__contentPage .main-content-page__wrapper .content__pageProducts .pageProducts__container-blocks {
+  max-width: 1200px;
+  margin: 25px auto;
+  display: flex; }
+  .wrapper__contentPage .main-content-page__wrapper .content__pageProducts .pageProducts__container-blocks .container-blocks__inner-block {
+    display: flex; }
+  .wrapper__contentPage .main-content-page__wrapper .content__pageProducts .pageProducts__container-blocks .container-item {
+    display: block;
+    max-width: 560px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 100%; }
+    .wrapper__contentPage .main-content-page__wrapper .content__pageProducts .pageProducts__container-blocks .container-item .block__img {
+      padding-bottom: 66%; }
+    .wrapper__contentPage .main-content-page__wrapper .content__pageProducts .pageProducts__container-blocks .container-item .left-block__img {
+      background: url("../images/products/десерты1.jpg") center bottom/cover no-repeat; }
+    .wrapper__contentPage .main-content-page__wrapper .content__pageProducts .pageProducts__container-blocks .container-item .right-block__img {
+      background: url("../images/products/выпечка2.jpg") center center/cover no-repeat; }
+    .wrapper__contentPage .main-content-page__wrapper .content__pageProducts .pageProducts__container-blocks .container-item .item__description {
+      display: block;
+      width: 100%; }
+      .wrapper__contentPage .main-content-page__wrapper .content__pageProducts .pageProducts__container-blocks .container-item .item__description .text__heading {
+        margin-top: 5px;
+        margin-bottom: 20px;
+        font-size: 28px;
+        line-height: 1.17;
+        font-weight: 600;
+        color: #000; }
+      .wrapper__contentPage .main-content-page__wrapper .content__pageProducts .pageProducts__container-blocks .container-item .item__description .description {
+        font-size: 18px;
+        line-height: 1.55;
+        font-weight: 300;
+        color: #000; }
+
+.wrapper__contentPage .main-content-page__wrapper .content__pageProducts .list__cards {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 0; }
+  @media screen and (max-width: 1200px) {
+    .wrapper__contentPage .main-content-page__wrapper .content__pageProducts .list__cards {
+      grid-template-columns: repeat(3, 1fr); } }
+  @media screen and (max-width: 992px) {
+    .wrapper__contentPage .main-content-page__wrapper .content__pageProducts .list__cards {
+      grid-template-columns: repeat(2, 1fr); } }
+  @media screen and (max-width: 768px) {
+    .wrapper__contentPage .main-content-page__wrapper .content__pageProducts .list__cards {
+      grid-template-columns: 1fr; } }
+  .wrapper__contentPage .main-content-page__wrapper .content__pageProducts .list__cards .card {
+    background-color: #eeeeee;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    border: none;
+    border-radius: 1rem;
+    transition: all 0.5s; }
+    .wrapper__contentPage .main-content-page__wrapper .content__pageProducts .list__cards .card:hover {
+      box-shadow: 0 8px 30px 5px #00000044;
+      background-color: #ffffff; }
+    .wrapper__contentPage .main-content-page__wrapper .content__pageProducts .list__cards .card-body .card-text {
+      text-decoration: none;
+      color: #1a1919;
+      font-weight: 900; }
+      .wrapper__contentPage .main-content-page__wrapper .content__pageProducts .list__cards .card-body .card-text .text {
+        font-weight: 700;
+        color: #e65c00; }
+    .wrapper__contentPage .main-content-page__wrapper .content__pageProducts .list__cards .card img {
+      width: 200px;
+      height: 200px; }
+    .wrapper__contentPage .main-content-page__wrapper .content__pageProducts .list__cards .card-link {
+      width: 100%; }
+
+.wrapper__contentPage .main-content-page__wrapper .content__about-us {
+  padding: 80px 0;
+  background: #b4b4b4;
+  margin: 10px 0; }
+  .wrapper__contentPage .main-content-page__wrapper .content__about-us .about-us__header-block {
+    position: relative;
+    text-align: center;
+    padding: 0 0 20px 0; }
+    .wrapper__contentPage .main-content-page__wrapper .content__about-us .about-us__header-block .header-block {
+      margin: 0 0 6px 0; }
+      .wrapper__contentPage .main-content-page__wrapper .content__about-us .about-us__header-block .header-block h3 {
+        margin: 0;
+        font-style: italic;
+        font-family: "Indie Flower";
+        font-size: 28px;
+        font-weight: 900;
+        color: #f34500; }
+    .wrapper__contentPage .main-content-page__wrapper .content__about-us .about-us__header-block .description {
+      font-family: "Roboto";
+      font-size: 36px;
+      font-weight: 700;
+      color: #201f1f; }
+    .wrapper__contentPage .main-content-page__wrapper .content__about-us .about-us__header-block::after {
+      position: absolute;
+      content: "";
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      height: 2px;
+      width: 60px;
+      background-color: #000000; }
+  .wrapper__contentPage .main-content-page__wrapper .content__about-us .about-us__content .content__text-block {
+    padding: 10px 0;
+    max-width: 600px;
+    text-align: center; }
+    .wrapper__contentPage .main-content-page__wrapper .content__about-us .about-us__content .content__text-block .callback-text {
+      font-family: "Roboto";
+      font-size: 18px;
+      font-weight: 400;
+      color: #5a5a5a;
+      font-style: italic; }
+  .wrapper__contentPage .main-content-page__wrapper .content__about-us .about-us__content .content__review-block .content__review__quotes-block {
+    padding: 25px 0 0 0;
+    text-align: center; }
+    .wrapper__contentPage .main-content-page__wrapper .content__about-us .about-us__content .content__review-block .content__review__quotes-block .text {
+      line-height: 10px;
+      font-family: "Noto Serif Display";
+      font-size: 54px;
+      font-weight: 900;
+      color: #000000; }
+  .wrapper__contentPage .main-content-page__wrapper .content__about-us .about-us__content .content__review-block .content-review__username-block .text {
+    text-transform: uppercase;
+    font-family: "Roboto";
+    font-size: 24px;
+    font-weight: 700;
+    color: #727272; }
