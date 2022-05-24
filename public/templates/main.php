@@ -267,7 +267,7 @@
                 <div class="owl-stage">
                   <div class="owl-item active" style="width: 270px; margin-right: 0px;">
                     <div class="card">
-                      <a class="card-inner" href="#" title="Отели в Геленджике">
+                      <a class="card-inner" href="index.php?page=catalog&city_category=3">
                         <img width="250" height="190" src="./src/images/hotels/500x380/500x380Adler.png" />
                         <span class="card-name-text">
                           Адлер
@@ -278,7 +278,7 @@
                   </div>
                   <div class="owl-item active" style="width: 270px; margin-right: 0px;">
                     <div class="card">
-                      <a class="card-inner" href="#" title="Отели в Геленджике">
+                      <a class="card-inner" href="index.php?page=catalog&city_category=1">
                         <img width="250" height="190" src="./src/images/hotels/500x380/500x380Moscow.png" />
                         <span class="card-name-text">
                           Москва
@@ -289,7 +289,7 @@
                   </div>
                   <div class="owl-item active" style="width: 270px; margin-right: 0px;">
                     <div class="card">
-                      <a class="card-inner" href="#" title="Отели в Геленджике">
+                      <a class="card-inner" href="index.php?page=catalog&city_category=4">
                         <img width="250" height="190" src="./src/images/hotels/500x380/500x380Peter.png" />
                         <span class="card-name-text">
                           Санкт-Петербург
@@ -300,7 +300,7 @@
                   </div>
                   <div class="owl-item active" style="width: 270px; margin-right: 0px;">
                     <div class="card">
-                      <a class="card-inner" href="#" title="Отели в Геленджике">
+                      <a class="card-inner" href="index.php?page=catalog&city_category=2">
                         <img width="250" height="190" src="./src/images/hotels/500x380/500x380Sochi.png" />
                         <span class="card-name-text">
                           Сочи
@@ -311,7 +311,7 @@
                   </div>
                   <div class="owl-item active" style="width: 270px; margin-right: 0px;">
                     <div class="card">
-                      <a class="card-inner" href="#" title="Отели в Геленджике">
+                      <a class="card-inner" href="index.php?page=catalog&city_category=5">
                         <img width="250" height="190" src="./src/images/hotels/500x380/500x380Krim.jpg" />
                         <span class="card-name-text">
                           Крым
@@ -322,7 +322,7 @@
                   </div>
                   <div class="owl-item active" style="width: 270px; margin-right: 0px;">
                     <div class="card">
-                      <a class="card-inner" href="#" title="Отели в Геленджике">
+                      <a class="card-inner" href="index.php?page=catalog&city_category=6">
                         <img width="250" height="190" src="./src/images/hotels/500x380/500x380Nizhniy.jpg" />
                         <span class="card-name-text">
                           Нижний Новгород

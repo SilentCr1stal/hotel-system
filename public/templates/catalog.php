@@ -109,27 +109,35 @@
           </div>
           <div class="products__flex-block">
             <?php
-            if (!$_GET['sort_rating'] && !$_GET['sort_price']) {
-              $query = 'select * from hotels';
-              if ($_GET['city_category'] != 'all')
-                $query .= " where location_hotel = " . $_GET['city_category'];
-            } else {
-              if ($_GET['sort_rating'] && !$_GET['sort_price']) {
-                if ($_GET['city_category'] != 'all') {
-                  $query = 'select * from hotels where location_hotel = ' . $_GET['city_category'] . ' order by rating_hotel ' . $_GET['sort_rating'] . ';';
-                } else
-                  $query = 'select * from hotels order by rating_hotel ' . $_GET['sort_rating'] . ';';
-              } elseif (!$_GET['sort_rating'] && $_GET['sort_price']) {
-                if ($_GET['city_category'] != 'all') {
-                  $query = 'select * from hotels where location_hotel = ' . $_GET['city_category'] . ' order by priceFrom_hotel ' . $_GET['sort_price'] . ';';
-                } else
-                  $query = 'select * from hotels order by priceFrom_hotel ' . $_GET['sort_price'] . ';';
+            if (!$_POST['search']) {
+              if (!$_GET['sort_rating'] && !$_GET['sort_price']) {
+                $query = 'select * from hotels';
+                if ($_GET['city_category'] != 'all')
+                  $query .= " where location_hotel = " . $_GET['city_category'];
               } else {
-                if ($_GET['city_category'] != 'all') {
-                  $query = '(select * from hotels where location_hotel = ' . $_GET['city_category'] . ' order by rating_hotel ' . $_GET['sort_rating'] . ') order by priceFrom_hotel ' . $_GET['sort_price'] . ';';
-                } else
-                  $query = '(select * from hotels order by rating_hotel ' . $_GET['sort_rating'] . ') order by priceFrom_hotel ' . $_GET['sort_price'] . ';';
+                if ($_GET['sort_rating'] && !$_GET['sort_price']) {
+                  if ($_GET['city_category'] != 'all') {
+                    $query = 'select * from hotels where location_hotel = ' . $_GET['city_category'] . ' order by rating_hotel ' . $_GET['sort_rating'] . ';';
+                  } else
+                    $query = 'select * from hotels order by rating_hotel ' . $_GET['sort_rating'] . ';';
+                } elseif (!$_GET['sort_rating'] && $_GET['sort_price']) {
+                  if ($_GET['city_category'] != 'all') {
+                    $query = 'select * from hotels where location_hotel = ' . $_GET['city_category'] . ' order by priceFrom_hotel ' . $_GET['sort_price'] . ';';
+                  } else
+                    $query = 'select * from hotels order by priceFrom_hotel ' . $_GET['sort_price'] . ';';
+                } else {
+                  if ($_GET['city_category'] != 'all') {
+                    $query = '(select * from hotels where location_hotel = ' . $_GET['city_category'] . ' order by rating_hotel ' . $_GET['sort_rating'] . ') order by priceFrom_hotel ' . $_GET['sort_price'] . ';';
+                  } else
+                    $query = '(select * from hotels order by rating_hotel ' . $_GET['sort_rating'] . ') order by priceFrom_hotel ' . $_GET['sort_price'] . ';';
+                }
               }
+            } else {
+              $query = "select * from hotels where location_hotel = (select id_city from cities where name_city like '%".$_POST['search']."%');";
+              $result = mysqli_query($link, $query);
+              $row = mysqli_fetch_assoc($result);
+              if (empty($row))
+                $query = "SELECT * FROM `hotels` WHERE `fullName_hotel` LIKE '%".$_POST['search']."%';";
             }
             $result = mysqli_query($link, $query);
             for (; $row = mysqli_fetch_assoc($result);) {

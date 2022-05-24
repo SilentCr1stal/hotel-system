@@ -52,7 +52,7 @@ if ($_GET['page'] == 'profile' || $_GET['page'] == 'admin' || $_GET['page'] == '
       <div class="block-width height100">
         <div class="auth-container" data-role="auth-container"></div>
         <div class="header-location">
-          <a href="#" class="header-location-info">
+          <a href="index.php?page=catalog&city_category=6" class="header-location-info">
             <span class="header-location-name">
               Нижний Новгород, Россия
             </span>
@@ -68,20 +68,19 @@ if ($_GET['page'] == 'profile' || $_GET['page'] == 'admin' || $_GET['page'] == '
             Забронируйте номер по выгодной цене!
           </div>
           <div class="form-wrap form-wrap_line">
-            <form class="form form_line" action="index.php?page=catalog&search=query" method="get" target="_self">
+            <form class="form form_line" action="./index.php?page=catalog&city_category=all" method="POST">
               <ul class="form-list">
                 <li class="form-item form-autocomplete ui-front">
                   <div class="hlf-input hlf-input--ac">
-                    <input type="text" name="search" placeholder="Укажите город, отель или место" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="ui-autocomplete-input" />
+                    <input type="search" name="search" placeholder="Укажите город, отель или место" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="ui-autocomplete-input" />
                     <div class="icon-load"></div>
-                    <i class="fa-solid fa-xmark"></i>
                     <div class="hint">
                       Введите, пожалуйста, название города или отеля
                     </div>
                   </div>
                 </li>
                 <li class="form-item form-submit">
-                  <button>
+                  <button type="submit">
                     Поиск
                   </button>
                 </li>
