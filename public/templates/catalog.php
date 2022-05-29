@@ -8,7 +8,7 @@
               <div class="line__picture-block line__left"></div>
               <div class="block__line"></div>
               <div class="line__picture-block line__right"></div>
-            </div> 
+            </div>
           </div>
         </div>
       </div>
@@ -133,17 +133,18 @@
                 }
               }
             } else {
-              $query = "select * from hotels where location_hotel = (select id_city from cities where name_city like '%".$_POST['search']."%');";
+              $query = "select * from hotels where location_hotel = (select id_city from cities where name_city like '%" . $_POST['search'] . "%');";
               $result = mysqli_query($link, $query);
               $row = mysqli_fetch_assoc($result);
               if (empty($row))
-                $query = "SELECT * FROM `hotels` WHERE `fullName_hotel` LIKE '%".$_POST['search']."%';";
+                $query = "SELECT * FROM `hotels` WHERE `fullName_hotel` LIKE '%" . $_POST['search'] . "%';";
             }
             $result = mysqli_query($link, $query);
             for (; $row = mysqli_fetch_assoc($result);) {
               $idHotel = $row['id_hotel'];
               $fullNameHotel = $row['fullName_hotel'];
               $locationHotel = $row['location_hotel'];
+              $addressHotel = $row['address_hotel'];
               $descriptionHotel = $row['description_hotel'];
               $imageHotel = $row['image_hotel'];
               $priceFromHotel = $row['priceFrom_hotel'];
@@ -163,12 +164,21 @@
                       }
                       ?>
                     </span>
-                    <div class="card-reviews">Хороший отель</div>
+                    <div class="card-reviews">
+                      <?php
+                      if ($starsHotel == 3)
+                        echo 'Неплохой отель';
+                      elseif ($starsHotel == 4)
+                        echo 'Хороший отель';
+                      elseif ($starsHotel == 5)
+                        echo 'Отличный отель'
+                      ?>
+                    </div>
                     <div class="card-location-wrap">
                       <span class="card-location">
-                        <i class="card-location-icon icon-location"></i>
+                        <i class="fa-solid fa-location-dot card-location-icon icon-location" style="padding: 4px 0 0 0;"></i>
                         <span class="card-location-text">
-                          1.5 км до центра Верхнее Джемете
+                          <?= $addressHotel ?>
                         </span>
                       </span>
                     </div>
@@ -196,39 +206,11 @@
                     </span>
                   </div>
                   <div class="card-form-area">
-                    <form class="card-form form_mini" action="" method="get">
-                      <div class="card-form-field-wrap">
-                        <label class="card-form-field-label">Прибытие</label>
-                        <div class="card-form-field card-form-field_date">
-                          <div class="hlf-input hlf-input--calendar">
-                            <input type="text" placeholder="Прибытие" height="60" />
-                            <input type="text" class="datepicker-hidden hasDatepicker" id="dp1652801999509" />
-
-                            <div class="hint"></div>
-                            <div class="pseudo-placeholder">Прибытие</div>
-                          </div>
-                        </div>
+                    <div class="card-form-field-wrap">
+                      <div class="card-form-field card-form-field_submit">
+                      <a href="index.php?page=hotel&hotelId=<?= $idHotel ?>">Узнать цены</a>
                       </div>
-                      <div class="card-form-field-wrap">
-                        <label class="card-form-field-label">Выезд</label>
-                        <div class="card-form-field card-form-field_date">
-                          <div class="hlf-input hlf-input--calendar">
-                            <input type="text" placeholder="Выезд" height="60" />
-                            <input type="text" class="datepicker-hidden hasDatepicker" id="dp1652801999510" />
-
-                            <div class="hint" hlf-role="hint"></div>
-                            <div class="pseudo-placeholder" hlf-role="placeholder">
-                              Выезд
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card-form-field-wrap">
-                        <div class="card-form-field card-form-field_submit">
-                          <button>Узнать цены</button>
-                        </div>
-                      </div>
-                    </form>
+                    </div>
                   </div>
                 </div>
               </div>

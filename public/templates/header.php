@@ -1,99 +1,99 @@
-<!DOCTYPE html>
-<html lang="ru_RU" dir="ltr">
-
-<head>
-  <meta name="keywords" content="отели, гостиницы, бронирований отелей, бронирование гостиниц, проживание, скидки на отели, сравнение цен на отели" />
-  <meta name="description" content="Все гостиницы России с ценами, бронирование отелей от недорогих до гостиниц премиум класса" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossOrigin="anonymous" referrerPolicy="no-referrer"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossOrigin="anonymous"></script>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>
-    GuestHouse - Все гостиницы России с ценами, бронирование отелей от
-    недорогих до гостиниц премиум класса
-  </title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Kurale&family=Macondo&family=Oleo+Script+Swash+Caps&family=Playfair+Display&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-  <link rel="shortcut icon" href="./public/favicon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="./src/css/global.css" />
-  <?php
-  if ($_GET['page'] == 'catalog')
-    // echo '<link rel="stylesheet" href="./src/css/products.css">';
-  ?>
-  <!-- <link rel="stylesheet" href="./src/css/header.css" />
-  <link rel="stylesheet" href="./src/css/footer.css" />
-  <link rel="stylesheet" href="./src/css/basket.css" /> -->
-  <?php
-if ($_GET['page'] == 'hotel')
-  // echo '<link rel="stylesheet" href="./src/css/product.css" />';
-  ?>
-  <?php
-if ($_GET['page'] == 'profile' || $_GET['page'] == 'admin' || $_GET['page'] == 'register')
-  // echo '<link rel="stylesheet" href="./src/css/auth.css" />';
-  ?>
-  <!-- <script defer src="./src/js/basket.js"></script> -->
-  <script defer src="./src/js/jquery.js"></script>
-  <script defer src="./src/js/site.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
-</head>
-
-<body>
-  <div class="wrapper__contentPage">
-    <header class="header header-realy-big">
-      <div class="header-image-wrap">
-        <div class="header-image" id="bgPict"></div>
-      </div>
-      <div class="header-shadow"></div>
-      <div class="block-width height100">
-        <div class="auth-container" data-role="auth-container"></div>
-        <div class="header-location">
-          <a href="index.php?page=catalog&city_category=6" class="header-location-info">
-            <span class="header-location-name">
-              Нижний Новгород, Россия
-            </span>
-            <span class="header-location-counter">Отели и гостиницы</span>
-          </a>
-        </div>
-        <a class="logo logo_header" href="index.php?page=index" title="Поиск и бронирование отелей">
-          <img src="./src/images/logo/logo.png" width="135" height="75" alt="GuestHouse" />
-        </a>
-        <div class="header-form-area">
-          <h1>Поиск отелей, хостелов и апартаментов</h1>
-          <div class="header-subtitle">
-            Забронируйте номер по выгодной цене!
-          </div>
-          <div class="form-wrap form-wrap_line">
-            <form class="form form_line" action="./index.php?page=catalog&city_category=all" method="POST">
-              <ul class="form-list">
-                <li class="form-item form-autocomplete ui-front">
-                  <div class="hlf-input hlf-input--ac">
-                    <input type="search" name="search" placeholder="Укажите город, отель или место" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="ui-autocomplete-input" />
-                    <div class="icon-load"></div>
-                    <div class="hint">
-                      Введите, пожалуйста, название города или отеля
-                    </div>
+<div class="wrapper__contentPage">
+  <header class="header header-realy-big">
+    <div class="header-image-wrap">
+      <div class="header-image" id="bgPict"></div>
+    </div>
+    <div class="header-shadow"></div>
+    <div class="block-width height100">
+      <div class="auth-container" data-role="auth-container">
+        <div class="header__user-profile">
+          <div class="user-profile__wrapper dropdown">
+            <a class="nav-link d-flex" href="" id="userProfileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="user-profile__pin">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="user-profile__text ps-2">
+                <span class="text">Личный кабинет</span>
+              </div>
+            </a>
+            <ul class="dropdown-menu user-profile__list" aria-labelledby="userProfileDropdown">
+              <div class="user-profile__auth p-3">
+                <?php
+                if (!isset($_SESSION['email_user']) && !isset($_SESSION['password_user'])) {
+                ?>
+                  <div class="auth__description-block">
+                    <span class="description">
+                      Зарегистрируйтесь или войдите в
+                      существующую учетную запись
+                    </span>
                   </div>
-                </li>
-                <li class="form-item form-submit">
-                  <button type="submit">
-                    Поиск
-                  </button>
-                </li>
-              </ul>
-            </form>
+                  <div class="auth__form-block d-grid gap-2 py-2">
+                    <a href="./authorization/form_register.php" class="btn btn-primary btn-reg link-profile">
+                      Регистрация
+                    </a>
+                    <a href="./authorization/form_auth.php" class="btn btn-primary btn-log link-profile">
+                      Авторизация
+                    </a>
+                  </div>
+                <?php
+                } else {
+                ?>
+                  <div class="auth__form-block d-grid gap-2 py-2">
+                    <a href="./authorization/logout.php" class="btn btn-primary btn-reg link-profile">
+                      Выход
+                    </a>
+                  </div>
+                <?php
+                }
+                ?>
+              </div>
+            </ul>
           </div>
         </div>
-        <div class="header-banner">
-          <div id="doubleclick_content_header_banner"></div>
+      </div>
+      <div class="header-location">
+        <a href="index.php?page=catalog&city_category=6" class="header-location-info">
+          <span class="header-location-name">
+            Нижний Новгород, Россия
+          </span>
+          <span class="header-location-counter">Отели и гостиницы</span>
+        </a>
+      </div>
+      <a class="logo logo_header" href="index.php?page=index" title="Поиск и бронирование отелей">
+        <img src="./src/images/logo/logo.png" width="135" height="75" alt="GuestHouse" />
+      </a>
+      <div class="header-form-area">
+        <h1>Поиск отелей, хостелов и апартаментов</h1>
+        <div class="header-subtitle">
+          Забронируйте номер по выгодной цене!
+        </div>
+        <div class="form-wrap form-wrap_line">
+          <form class="form form_line" action="./index.php?page=catalog&city_category=all" method="POST">
+            <ul class="form-list">
+              <li class="form-item form-autocomplete ui-front">
+                <div class="hlf-input hlf-input--ac">
+                  <input type="search" name="search" placeholder="Укажите город, отель или место" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="ui-autocomplete-input" />
+                  <div class="icon-load"></div>
+                  <div class="hint">
+                    Введите, пожалуйста, название города или отеля
+                  </div>
+                </div>
+              </li>
+              <li class="form-item form-submit">
+                <button type="submit">
+                  Поиск
+                </button>
+              </li>
+            </ul>
+          </form>
         </div>
       </div>
-      <div class="header-triangle">
-        <div class="header-triangle-elem header-triangle-elem_left"></div>
-        <div class="header-triangle-elem header-triangle-elem_right"></div>
+      <div class="header-banner">
+        <div id="doubleclick_content_header_banner"></div>
       </div>
-    </header>
+    </div>
+    <div class="header-triangle">
+      <div class="header-triangle-elem header-triangle-elem_left"></div>
+      <div class="header-triangle-elem header-triangle-elem_right"></div>
+    </div>
+  </header>

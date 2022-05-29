@@ -1,7 +1,4 @@
-<?php
-// if (!isset($_SESSION)) {
-//   session_start();
-// } ?>
+
 <footer class="footer footer_alterBgColor">
   <div class="footer-desktop">
     <div class="footer-block footer-block_top">
@@ -78,7 +75,7 @@
             </ul>
             <ul class="footer-linksBlock">
               <li>
-                <a href="index.php?page=catalog&city_category=all">Каталог отелей</a>
+                <a href=<?= $address."/index.php?page=catalog&city_category=all"?>>Каталог отелей</a>
               </li>
               <li>
                 <a href="#">Крым</a>
@@ -194,5 +191,4 @@
 </footer>
 </div>
 </body>
-
 </html>

@@ -150,6 +150,7 @@
         $query = 'SELECT * FROM hotels ORDER BY rating_hotel DESC limit 6';
         $result = mysqli_query($link, $query);
         for (; $row = mysqli_fetch_assoc($result);) {
+          $idHotel = $row['id_hotel'];
           $fullName = $row['fullName_hotel'];
           $stars = $row['stars_hotel'];
           $priceFrom = $row['priceFrom_hotel'];
@@ -204,39 +205,11 @@
                 </span>
               </div>
               <div class="card-form-area">
-                <form class="card-form form_mini" action="" method="get">
-                  <div class="card-form-field-wrap">
-                    <label class="card-form-field-label">Прибытие</label>
-                    <div class="card-form-field card-form-field_date">
-                      <div class="hlf-input hlf-input--calendar">
-                        <input type="text" placeholder="Прибытие" height="60" />
-                        <input type="text" class="datepicker-hidden hasDatepicker" id="dp1652801999509" />
-
-                        <div class="hint"></div>
-                        <div class="pseudo-placeholder">Прибытие</div>
-                      </div>
-                    </div>
+                <div class="card-form-field-wrap">
+                  <div class="card-form-field card-form-field_submit">
+                    <a href="index.php?page=hotel&hotelId=<?= $idHotel ?>">Узнать цены</a>
                   </div>
-                  <div class="card-form-field-wrap">
-                    <label class="card-form-field-label">Выезд</label>
-                    <div class="card-form-field card-form-field_date">
-                      <div class="hlf-input hlf-input--calendar">
-                        <input type="text" placeholder="Выезд" height="60" />
-                        <input type="text" class="datepicker-hidden hasDatepicker" id="dp1652801999510" />
-
-                        <div class="hint" hlf-role="hint"></div>
-                        <div class="pseudo-placeholder" hlf-role="placeholder">
-                          Выезд
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-form-field-wrap">
-                    <div class="card-form-field card-form-field_submit">
-                      <button>Узнать цены</button>
-                    </div>
-                  </div>
-                </form>
+                </div>
               </div>
             </div>
           </div>
