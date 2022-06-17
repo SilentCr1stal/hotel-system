@@ -34,7 +34,7 @@
                 $city = $row['name_city'];
               ?>
                 <a href="index.php?page=catalog&city_category=<?php echo $cityId; ?>" class="store-switch__btn-link__item">
-                  <?php echo $city; ?>
+                  <?= $city ?>
                 </a>
               <?php
               }
@@ -151,7 +151,7 @@
               $ratingHotel = $row['rating_hotel'];
               $starsHotel = $row['stars_hotel'];
             ?>
-              <div class="card card-card_discount card-card_border">
+              <div class="card card-card_discount card-card_border" style="border: none; margin: 5px 0 0 0;">
                 <div class="card-inner">
                   <div class="card-discount">
                     <!-- <span class="value">Cкидка discount% </span> -->

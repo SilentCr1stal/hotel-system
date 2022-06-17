@@ -28,10 +28,10 @@
                     </span>
                   </div>
                   <div class="auth__form-block d-grid gap-2 py-2">
-                    <a href="./authorization/form_register.php" class="btn btn-primary btn-reg link-profile">
+                    <a href="./authorization/form_register.php" class="btn btn-primary btn-reg link-profile" style="font-size: 1.2rem;">
                       Регистрация
                     </a>
-                    <a href="./authorization/form_auth.php" class="btn btn-primary btn-log link-profile">
+                    <a href="./authorization/form_auth.php" class="btn btn-primary btn-log link-profile" style="font-size: 1.2rem;">
                       Авторизация
                     </a>
                   </div>
@@ -39,7 +39,10 @@
                 } else {
                 ?>
                   <div class="auth__form-block d-grid gap-2 py-2">
-                    <a href="./authorization/logout.php" class="btn btn-primary btn-reg link-profile">
+                    <a href="index.php?page=profile" class="btn btn-primary btn-log link-profile" style="font-size: 1.2rem;">
+                      Личный кабинет
+                    </a>
+                    <a href="./authorization/logout.php" class="btn btn-primary btn-reg link-profile" style="font-size: 1.2rem;">
                       Выход
                     </a>
                   </div>

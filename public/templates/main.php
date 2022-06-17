@@ -135,9 +135,7 @@
     <div class="description-wrapper">
       <div class="block-width">
         <h2 class="block-header">Скидки на популярные отели</h2>
-        <div class="hr">
-          <span class="icon-label"></span>
-        </div>
+        <div class="hr"></div>
         <div class="text-layout text-styles alignLeft long-text-wrapper">
           Сравнивайте и бронируйте лучшие предложения по популярным
           направлениям и не забудьте посмотреть скидки. Чтобы забронировать
@@ -156,10 +154,11 @@
           $priceFrom = $row['priceFrom_hotel'];
           $hasWifi = $row['hasWifi_hotel'];
           $description = $row['description_hotel'];
+          $addressHotel = $row['address_hotel'];
           $image = $row['image_hotel'];
           $rating = $row['rating_hotel'];
         ?>
-          <div class="card card-card_discount card-card_border">
+          <div class="card card-card_discount card-card_border" style="border: none;">
             <div class="card-inner">
               <div class="card-discount">
                 <!-- <span class="value">Cкидка {discount}% </span> -->
@@ -172,12 +171,21 @@
                   }
                   ?>
                 </span>
-                <div class="card-reviews">Хороший отель</div>
+                <div class="card-reviews">
+                  <?php
+                  if ($stars == 3)
+                    echo 'Неплохой отель';
+                  elseif ($stars == 4)
+                    echo 'Хороший отель';
+                  elseif ($stars == 5)
+                    echo 'Отличный отель'
+                  ?>
+                </div>
                 <div class="card-location-wrap">
                   <span class="card-location">
                     <i class="card-location-icon icon-location"></i>
                     <span class="card-location-text">
-                      1.5 км до центра Верхнее Джемете
+                      <?= $addressHotel ?>
                     </span>
                   </span>
                 </div>
@@ -225,9 +233,7 @@
         <h2 class="block-header">
           Скидки на отели и гостиницы в популярных городах
         </h2>
-        <div class="hr">
-          <span class="icon-city"></span>
-        </div>
+        <div class="hr"></div>
         <div class="text-layout text-styles alignLeft long-text-wrapper">
           Пользователи выбирают гостиницы, а мы собираем информацию о
           направлениях, которые у них популярны. Эти данные обновляются

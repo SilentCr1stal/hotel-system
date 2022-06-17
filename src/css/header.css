@@ -541,7 +541,8 @@ button {
 html,
 body {
   height: 100%;
-  min-width: 320px; }
+  min-width: 320px;
+  overflow-x: hidden; }
 
 html {
   font-size: 10px; }
@@ -559,7 +560,6 @@ body {
 
 a {
   text-decoration: none;
-  color: #07af61;
   transition: color 0.15s ease;
   word-wrap: break-word;
   outline: none;
@@ -990,10 +990,6 @@ img {
   right: 2.5rem;
   top: 2.5rem;
   display: block; }
-
-@media (max-width: 800px) {
-  .auth-container {
-    display: none; } }
 
 .form_line .form-item:last-child {
   background-color: transparent; }

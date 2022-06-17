@@ -22,23 +22,9 @@ $yearHotel = $row['year_hotel'];
           <div class="zen-roomspage-header-content">
             <div class="zen-roomspage-header-inner">
               <div class="zen-roomspage-header-title-wrapper">
-                <div class="zen-roomspage-title">
+                <div class="zen-roomspage-title" style="text-align: left;">
                   <div class="zen-roomspage-title-stars-wrapper">
                     <div class="zen-roomspage-title-stars">
-                      <!-- <div class="zen-ui-stars">
-                        <div class="zen-ui-stars-wrapper">
-                          <div class="zen-ui-stars-star"></div>
-                        </div>
-                        <div class="zen-ui-stars-wrapper">
-                          <div class="zen-ui-stars-star"></div>
-                        </div>
-                        <div class="zen-ui-stars-wrapper">
-                          <div class="zen-ui-stars-star"></div>
-                        </div>
-                        <div class="zen-ui-stars-wrapper">
-                          <div class="zen-ui-stars-star"></div>
-                        </div>
-                      </div> -->
                       <span class="card-stars">
                         <?php
                         for ($i = 0; $i < $starsHotel; $i++) {
@@ -102,7 +88,9 @@ $yearHotel = $row['year_hotel'];
                     </ul>
                   </div>
                 </div>
-                <div class="zenroomspageperks-rating-button-wrapper"><button class="zenroomspageperks-rating-button button-view-light button-size-s">Читать все отзывы</button></div>
+                <div class="zenroomspageperks-rating-button-wrapper">
+                  <a href="#feedback" class="zenroomspageperks-rating-button button-view-light button-size-s">Читать все отзывы</a>
+                </div>
               </div>
             </div>
             <div class="zen-roomspage-gallery-wrapper">
@@ -157,137 +145,194 @@ $yearHotel = $row['year_hotel'];
     $result = mysqli_query($link, $query);
     ?>
     <div class="zenroomspagerates">
-      <div class="zen-roomspage-rooms zen-roomspage-rooms-new-rg-design">
-        <div class="zen-roomspage-rooms-content">
-          <div class="zenroomspage-rooms">
-            <div class="zen-roomspagerooms-inner">
-              <div class="zen-roomspagerooms-room">
-                <div class="zenroomspage-b2c-rates" id="price">
-                  <div class="zenroomspage-b2c-rates-header">
-                    <div class="zenroomspage-rates-roomheader">
-                      <div class="zenroomspage-rates-roomheader-content">
-                        <div class="zenroomspage-rates-roomheader-column-right">
-                          <div class="zenroomspage-rates-roomheader-name">
-                            <div class="zenroomspagerate-name">
-                              <div class="zenroomspagerate-name-title">Двухместный номер Standard <span class="zenroomspagerate-name-title-additional">2 отдельные кровати</span></div>
-                            </div>
-                          </div>
-                          <div class="zenroomspage-rates-roomheader-amenities">
-                            <div class="zenroomspageroom-header-content-amenities">
-                              <div class="zenroomspageroom-header-content-amenities-wrap">
-                                <div class="zenroomspageroom-header-content-amenity zenroomspageroom-header-content-amenity-square"><span>23&nbsp;м<sup>2</sup></span></div>
-                                <div class="zenroomspageroom-header-content-amenity zenroomspageroom-header-content-amenity-private-bathroom"><span>Собственная ванная комната</span></div>
-                                <div class="zenroomspageroom-header-content-amenity zenroomspageroom-header-content-amenity-window"><span>Окно</span></div>
-                                <div class="zenroomspageroom-header-content-amenity zenroomspageroom-header-content-amenity-safe"><span>Сейф</span></div>
-                                <div class="zenroomspageroom-header-content-amenity zenroomspageroom-header-content-amenity-mini-bar"><span>Минибар</span></div>
-                                <div class="zenroomspageroom-header-content-amenity zenroomspageroom-header-content-amenity-pets-allowed"><span>Домашние животные разрешены</span></div>
-                                <div class="zenroomspageroom-header-content-amenity zenroomspageroom-header-content-amenity-air-conditioning"><span>Кондиционер</span></div>
-                                <div class="zenroomspageroom-header-content-space"></div>
-                              </div><span class="zenroomspageroom-header-content-show-all"></span>
+      <form action="./booking.php" method="post" enctype="multipart/form-data">
+        <div class="zenroomspage-searchresult">
+          <div class="zensearchresult">
+            <div class="zensearchresult-filters">
+              <div class="zensearchresultfilters">
+                <div class="zenfilterscontainer">
+                  <div class="zenfilterscontainer-filters">
+                    <ul class="zenformselectgroup" style="padding: 0;">
+                      <li class="zenformselectgroup-item">
+                        <div class="zenformselect zenformselect-size-m" tabindex="0">
+                          <div class="zenformselect-inner">
+                            <div class="zenformselect-title-wrapper" style="display: flex;justify-content: space-between;">
+                              <p class="zenformselect-title">Дата заезда</p>
+                              <input type="datetime-local" name="checkIn" id="checkIn-date" min="<?= date('Y-m-d\TH:i') ?>" max="2022-12-31T23:59" required>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
+                      </li>
+                      <li class="zenformselectgroup-item">
+                        <div class="zenformselect zenformselect-size-m" tabindex="0">
+                          <div class="zenformselect-inner">
+                            <div class="zenformselect-title-wrapper" style="display: flex;justify-content: space-between;">
+                              <p class="zenformselect-title">Дата выезда</p>
+                              <?php
+                              $date = date_create(date('Y-m-d H:i'));
+                              date_modify($date, '2 hour');
+                              $date_new = date_format($date, 'Y-m-d\TH:i');
+                              ?>
+                              <input type="datetime-local" name="checkOut" id="checkOut-date" min="<?= $date_new ?>" max="2022-12-31T23:59" required>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
                   </div>
-                  <table class="zenroomspage-b2c-rates-table">
-                    <?php
-                    for (; $row = mysqli_fetch_assoc($result);) {
-                      $idRoom = $row['id_room'];
-                      $priceRoom = $row['price_room'];
-                      $breakfastRoom = $row['breakfast_room'];
-                      $squareRoom = $row['square_room'];
-                      $smokingRoom = $row['smoking_room'];
-                      $heatingRoom = $row['heating_room'];
-                      $showerRoom = $row['shower_room'];
-                    ?>
-                      <tr class="zenroomspage-b2c-rates-table-row">
-                        <td class="zenroomspage-b2c-rates-table-cell">
-                          <div class="zenroomspage-b2c-rates-table-cell-content zenroomspage-b2c-rates-table-cell-content-bedding">
-                            <div class="zenroomspage-b2c-rates-table-cell-content-bedding-icon zenroomspage-b2c-rates-table-cell-content-bedding-icon-twin"></div>
-                          </div>
-                        </td>
-                        <td class="zenroomspage-b2c-rates-table-cell zenroomspage-b2c-rates-table-cell-valueadds">
-                          <div class="zenroomspage-b2c-rates-table-cell-content zenroomspage-b2c-rates-table-cell-content-valueadds" style="width: 293px;">
-                            <div class="valueadds-wrapper">
-                              <ul class="valueadds" style="padding: 0;">
-                                <?php
-                                if ($breakfastRoom) {
-                                ?>
-                                  <li class="valueadds-item valueadds-item-has-popuptip valueadds-item-pointer valueadds-item-pro valueadds-item-meal">
-                                    <div class="valueadds-item-title-wrapper">
-                                      <div class="valueadds-item-title">
-                                        <div class="valueadds-item-title-inner">Завтрак включён</div>
-                                      </div>
-                                    </div>
-                                  </li>
-                                <?php
-                                }
-                                if ($smokingRoom) {
-                                ?>
-                                  <div class="zenroomspageroom-header-content-amenity-air-smoke" style="margin: 7px 0 0 0;"><span style="padding: 0 0 0 25px;">Для курящих</span></div>
-                                <?php
-                                }
-                                if ($showerRoom) {
-                                ?>
-                                  <div class="zenroomspageroom-header-content-amenity-shower" style="margin: 7px 0 0 0;"><span style="padding: 0 0 0 25px;">Душ</span></div>
-                                <?php
-                                }
-                                ?>
-                              </ul>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="zenroomspage-b2c-rates-table-cell zenroomspage-b2c-rates-table-cell-cancellation">
-                          <div class="zenroomspage-b2c-rates-table-cell-content zenroomspage-b2c-rates-table-cell-content-cancellation" style="width: 293px;">
-                            <div class="valueadds-wrapper">
-                              <ul class="valueadds">
-                                <li class="valueadds-item valueadds-item-has-popuptip valueadds-item-pointer valueadds-item-pro valueadds-item-cancellation">
-                                  <div class="valueadds-item-title-wrapper" style="text-align: left;">
-                                    <div class="valueadds-item-title">
-                                      <div class="valueadds-item-title-inner">Бесплатная отмена</div>
-                                    </div>
-                                  </div>
-                                </li>
-                                <li class="valueadds-item valueadds-item-has-popuptip valueadds-item-pointer valueadds-item-payment">
-                                  <div class="valueadds-item-title-wrapper">
-                                    <div class="valueadds-item-title">
-                                      <div class="valueadds-item-title-inner">Оплата сейчас</div>
-                                    </div>
-                                  </div>
-                                </li>
-                                <div class="zenroomspageroom-header-content-amenity-heating" style="margin: 4px 0 0 0;"><span style="padding: 0px 0 0 30px;">Отопление</span></div>
-                              </ul>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="zenroomspage-b2c-rates-table-cell zenroomspage-b2c-rates-table-cell-price" style="text-align: left;">
-                          <div class="zenroomspage-b2c-rates-table-cell-content zenroomspage-b2c-rates-table-cell-content-price" style="width: 116px;">
-                            <div class="zenroomspage-b2c-rates-price">
-                              <div class="zenroomspage-b2c-rates-price-amount"><?= $priceRoom ?>&nbsp;₽<div class="zenroomspage-b2c-rates-badge"></div>
-                              </div>
-                              <div class="zenroomspage-b2c-rates-price-tip"></div>
-                            </div>
-                            <div class="zenroomspage-b2c-rates-price-included">Все налоги включены</div>
-                            <div class="zenroomspage-b2c-rates-price-nights-string">за ночь для 2 гостей</div>
-                          </div>
-                        </td>
-                        <td class="zenroomspage-b2c-rates-table-cell zenroomspage-b2c-rates-table-cell-book">
-                          <div class="zenroomspage-b2c-rates-table-cell-content zenroomspage-b2c-rates-table-cell-content-button">
-                            <a class="zenroomspage-b2c-rates-book button-view-primary button-size-s" href="">Забронировать</a>
-                          </div>
-                        </td>
-                      </tr>
-                    <?php
-                    }
-                    ?>
-                  </table>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+        <?php
+        $id_user = $_SESSION['id_user'];
+        if ($id_user) {
+          $bookingQuery = "Select * from booking where id_user = " . $id_user;
+          $bookingResult = mysqli_query($link, $bookingQuery);
+          $booking = mysqli_fetch_assoc($bookingResult);
+        }
+        ?>
+        <div class="zen-roomspage-rooms zen-roomspage-rooms-new-rg-design">
+          <div class="zen-roomspage-rooms-content">
+            <div class="zenroomspage-rooms">
+              <div class="zen-roomspagerooms-inner">
+                <div class="zen-roomspagerooms-room">
+                  <div class="zenroomspage-b2c-rates" id="price" style="text-align: left;">
+                    <div class="zenroomspage-b2c-rates-header">
+                      <div class="zenroomspage-rates-roomheader">
+                        <div class="zenroomspage-rates-roomheader-content">
+                          <div class="zenroomspage-rates-roomheader-column-right">
+                            <div class="zenroomspage-rates-roomheader-name">
+                              <div class="zenroomspagerate-name">
+                                <div class="zenroomspagerate-name-title">Двухместный номер Standard <span class="zenroomspagerate-name-title-additional">2 отдельные кровати</span></div>
+                              </div>
+                            </div>
+                            <div class="zenroomspage-rates-roomheader-amenities">
+                              <div class="zenroomspageroom-header-content-amenities">
+                                <div class="zenroomspageroom-header-content-amenities-wrap">
+                                  <div class="zenroomspageroom-header-content-amenity zenroomspageroom-header-content-amenity-private-bathroom"><span>Собственная ванная комната</span></div>
+                                  <div class="zenroomspageroom-header-content-amenity zenroomspageroom-header-content-amenity-window"><span>Окно</span></div>
+                                  <div class="zenroomspageroom-header-content-amenity zenroomspageroom-header-content-amenity-safe"><span>Сейф</span></div>
+                                  <div class="zenroomspageroom-header-content-amenity zenroomspageroom-header-content-amenity-mini-bar"><span>Минибар</span></div>
+                                  <div class="zenroomspageroom-header-content-amenity zenroomspageroom-header-content-amenity-pets-allowed"><span>Домашние животные разрешены</span></div>
+                                  <div class="zenroomspageroom-header-content-amenity zenroomspageroom-header-content-amenity-air-conditioning"><span>Кондиционер</span></div>
+                                  <div class="zenroomspageroom-header-content-space"></div>
+                                </div><span class="zenroomspageroom-header-content-show-all"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <table class="zenroomspage-b2c-rates-table">
+                      <?php
+                      for (; $row = mysqli_fetch_assoc($result);) {
+                        $idRoom = $row['id_room'];
+                        $priceRoom = $row['price_room'];
+                        $breakfastRoom = $row['breakfast_room'];
+                        $squareRoom = $row['square_room'];
+                        $smokingRoom = $row['smoking_room'];
+                        $heatingRoom = $row['heating_room'];
+                        $showerRoom = $row['shower_room'];
+
+                      ?>
+                        <tr class="zenroomspage-b2c-rates-table-row" style="<?= !empty($booking) ? 'opacity: .2;' : '' ?>">
+                          <td class="zenroomspage-b2c-rates-table-cell">
+                            <div class="zenroomspage-b2c-rates-table-cell-content zenroomspage-b2c-rates-table-cell-content-bedding">
+                              <div class="zenroomspage-b2c-rates-table-cell-content-bedding-icon zenroomspage-b2c-rates-table-cell-content-bedding-icon-twin"></div>
+                            </div>
+                          </td>
+                          <td class="zenroomspage-b2c-rates-table-cell zenroomspage-b2c-rates-table-cell-valueadds">
+                            <div class="zenroomspage-b2c-rates-table-cell-content zenroomspage-b2c-rates-table-cell-content-valueadds" style="width: 293px;">
+                              <div class="valueadds-wrapper">
+                                <ul class="valueadds" style="padding: 0;">
+                                  <div class="zenroomspageroom-header-content-amenity zenroomspageroom-header-content-amenity-square"><span><?= $squareRoom ?>&nbsp;м<sup>2</sup></span></div>
+                                  <?php
+                                  if ($breakfastRoom) {
+                                  ?>
+                                    <li class="valueadds-item valueadds-item-has-popuptip valueadds-item-pointer valueadds-item-pro valueadds-item-meal">
+                                      <div class="valueadds-item-title-wrapper">
+                                        <div class="valueadds-item-title">
+                                          <div class="valueadds-item-title-inner">Завтрак включён</div>
+                                        </div>
+                                      </div>
+                                    </li>
+                                  <?php
+                                  }
+                                  if ($smokingRoom) {
+                                  ?>
+                                    <div class="zenroomspageroom-header-content-amenity-air-smoke" style="margin: 7px 0 0 0;"><span style="padding: 0 0 0 25px;">Для курящих</span></div>
+                                  <?php
+                                  }
+                                  if ($showerRoom) {
+                                  ?>
+                                    <div class="zenroomspageroom-header-content-amenity-shower" style="margin: 7px 0 0 0;"><span style="padding: 0 0 0 25px;">Душ</span></div>
+                                  <?php
+                                  }
+                                  ?>
+                                </ul>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="zenroomspage-b2c-rates-table-cell zenroomspage-b2c-rates-table-cell-cancellation">
+                            <div class="zenroomspage-b2c-rates-table-cell-content zenroomspage-b2c-rates-table-cell-content-cancellation" style="width: 293px;">
+                              <div class="valueadds-wrapper">
+                                <ul class="valueadds" style="padding: 0;">
+                                  <li class="valueadds-item valueadds-item-has-popuptip valueadds-item-pointer valueadds-item-pro valueadds-item-cancellation">
+                                    <div class="valueadds-item-title-wrapper" style="text-align: left;">
+                                      <div class="valueadds-item-title">
+                                        <div class="valueadds-item-title-inner">Бесплатная отмена</div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li class="valueadds-item valueadds-item-has-popuptip valueadds-item-pointer valueadds-item-payment">
+                                    <div class="valueadds-item-title-wrapper">
+                                      <div class="valueadds-item-title">
+                                        <div class="valueadds-item-title-inner">Оплата сейчас</div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <?php
+                                  if ($heatingRoom) {
+                                  ?>
+                                    <div class="zenroomspageroom-header-content-amenity-heating" style="margin: 4px 0 0 0;"><span style="padding: 0px 0 0 30px;">Отопление</span></div>
+                                  <?php
+                                  }
+                                  ?>
+                                </ul>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="zenroomspage-b2c-rates-table-cell zenroomspage-b2c-rates-table-cell-price" style="text-align: left;">
+                            <div class="zenroomspage-b2c-rates-table-cell-content zenroomspage-b2c-rates-table-cell-content-price" style="width: 116px;">
+                              <div class="zenroomspage-b2c-rates-price">
+                                <div class="zenroomspage-b2c-rates-price-amount"><?= $priceRoom ?>&nbsp;₽<div class="zenroomspage-b2c-rates-badge"></div>
+                                </div>
+                                <div class="zenroomspage-b2c-rates-price-tip"></div>
+                              </div>
+                              <div class="zenroomspage-b2c-rates-price-included">Все налоги включены</div>
+                              <div class="zenroomspage-b2c-rates-price-nights-string">за сутки для 2 гостей</div>
+                            </div>
+                          </td>
+                          <td class="zenroomspage-b2c-rates-table-cell zenroomspage-b2c-rates-table-cell-book">
+                            <div class="zenroomspage-b2c-rates-table-cell-content zenroomspage-b2c-rates-table-cell-content-button">
+                              <button type="submit" class="zenroomspage-b2c-rates-book button-view-primary button-size-s open-modal" <?= !empty($booking) ? 'disabled' : '' ?>>Забронировать</button>
+                            </div>
+                          </td>
+                          <input name="id_room" type="text" value="<?= $idRoom ?>" style="display: none;">
+                        </tr>
+                      <?php
+                      }
+                      ?>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
     <div class="zenroomspage-about" style="text-align: left;">
       <div class="zen-roomspage-about-wrapper">
@@ -309,10 +354,6 @@ $yearHotel = $row['year_hotel'];
                     <div class="zen-roomspage-about-info-item-title">Год постройки</div>
                     <div class="zen-roomspage-about-info-item-description"><?= $yearHotel ?> год</div>
                   </div>
-                  <div class="zen-roomspage-about-info-item">
-                    <div class="zen-roomspage-about-info-item-title">Количество номеров и этажей</div>
-                    <div class="zen-roomspage-about-info-item-description">80 номеров • 4 этажа</div>
-                  </div>
                   <?php
                   if ($hasWifiHotel) {
                   ?>
@@ -330,185 +371,65 @@ $yearHotel = $row['year_hotel'];
         </div>
       </div>
     </div>
-    <div class="zenroomspagereviews-wrapper">
+    <?php
+    $queryFeedback = 'Select Count(*) as count from comments where id_hotel = ' . $idHotel;
+    $resultFeedback = mysqli_query($link, $queryFeedback);
+    $rowFeedback = mysqli_fetch_assoc($resultFeedback);
+    ?>
+    <div class="zenroomspagereviews-wrapper" id="feedback">
       <div class="zenroomspagereviews">
         <div class="zenroomspagereviews-content">
-          <p class="zenroomspagereviews-content-hotel-name">Отель Братья Карамазовы
-          <div class="zenroomspagereviews-content-hotel-back"></div>
-          <div class="zenroomspagereviews-content-hotel-close"></div>
-          </p>
           <div class="zenroomspagereviews-content-inner">
             <p class="zenroomspagereviews-content-title">Отзывы</p>
-            <form class="zenroomspagereviews-tabs">
+            <div class="zenroomspagereviews-tabs">
               <ul class="zenroomspagereviews-tabs-list">
-                <li class="zenroomspagereviews-tabs-item"><input class="zenroomspagereviews-tabs-input" id="all" name="tab" type="radio"><label class="zenroomspagereviews-tabs-all zenroomspagereviews-tabs-all-active" for="all"><span class="link">Все отзывы</span> ∙ 591</label></li>
+                <li class="zenroomspagereviews-tabs-item">
+                  <label class="zenroomspagereviews-tabs-all zenroomspagereviews-tabs-all-active">
+                    <span>Все отзывы</span> ∙ <?= $rowFeedback['count'] ?></label>
+                </li>
               </ul>
+            </div>
+            <form action="./add_comment.php" method="post">
+              <textarea name="textComment" rows="5" placeholder="Оставить отзыв" required style="width: 100%; resize: none;"></textarea>
+              <button type="submit">Отправить</button>
             </form>
+            <?php
+            $queryComments = 'Select * from comments where id_hotel = ' . $idHotel;
+            $resultComments = mysqli_query($link, $queryComments);
+            ?>
             <ul class="zenroomspagereviews-list">
-              <li class="zenroomspagereviews-item">
-                <div class="zenroomspagereviews-item-hotel">
-                  <div class="zenroomspagereviews-item-hotel-info">
-                    <div class="zenroomspagereviews-item-hotel-info-author"><span class="zenroomspagereviews-item-hotel-info-author-name">Andrey</span><span class="zenroomspagereviews-item-hotel-info-author-flag zenroomspagereviews-item-hotel-info-author-flag-ru"></span></div>
-                    <p class="zenroomspagereviews-item-hotel-info-trip-type">отдых, пара</p>
-                    <p class="zenroomspagereviews-item-hotel-info-date">май 2022</p>
-                    <p class="zenroomspagereviews-item-hotel-info-room-type">Двухместный номер Standard (двуспальная кровать), 4 ночи</p>
-                  </div>
-                  <div class="zenroomspagereviews-item-hotel-content">
-                    <div class="zenroomspagereviews-item-hotel-content-total">
-                      <div class="zenroomspagereviews-item-hotel-content-total-rating">
-                        <p class="zenroomspagereviews-item-hotel-content-total-rating-value zenroomspagereviews-item-hotel-content-total-rating-value-9">8,5</p>
-                        <p class="zenroomspagereviews-item-hotel-content-total-rating-description">Отлично</p>
-                        <p class="zenroomspagereviews-item-hotel-content-total-rating-details-link link">Раскрыть детали</p>
+              <?php
+              for (; $rowComments = mysqli_fetch_assoc($resultComments);) {
+                $idComment = $rowComments['id_comment'];
+                $idUser = $rowComments['id_user'];
+                $queryUser = 'Select * from users where id_user = ' . $idUser;
+                $resultUser = mysqli_query($link, $queryUser);
+                $rowUser = mysqli_fetch_assoc($resultUser);
+                $loginUser = $rowUser['login_user'];
+                $textComment = $rowComments['text_comment'];
+                $dateComment = $rowComments['date_comment'];
+              ?>
+                <li class="zenroomspagereviews-item">
+                  <div class="zenroomspagereviews-item-tripadvisor">
+                    <div class="zenroomspagereviews-item-tripadvisor-info">
+                      <div class="zenroomspagereviews-item-tripadvisor-info-author">
+                        <span class="zenroomspagereviews-item-tripadvisor-info-author-name"><?= $loginUser ?></span>
                       </div>
-                      <div class="zenroomspagereviews-item-hotel-content-total-info">
-                        <div class="zenroomspagereviews-item-hotel-content-total-info-author"><span class="zenroomspagereviews-item-hotel-content-total-info-author-name">Andrey</span><span class="zenroomspagereviews-item-hotel-content-total-info-author-flag zenroomspagereviews-item-hotel-content-total-info-author-flag-ru"></span></div>
-                        <p class="zenroomspagereviews-item-hotel-content-total-info-date">май 2022</p>
-                      </div>
+                      <p class="zenroomspagereviews-item-tripadvisor-info-date" style="padding: 0 0 0 15px;"><?= $dateComment ?></p>
                     </div>
-                    <div class="zenroomspagereviews-item-hotel-content-inner">
-                      <div class="zenroomspagehotelreviewcontent">
-                        <div class="zenroomspagehotelreviewcontent-reviews">
-                          <p class="zenroomspagehotelreviewcontent-plus-title">Что было хорошо</p>
-                          <p class="zenroomspagehotelreviewcontent-plus-description">Все чисто в отеле и номере
-                            Хорошо встретили, вежливый персонал</p>
-                          <p class="zenroomspagehotelreviewcontent-minus-title">Что было плохо</p>
-                          <p class="zenroomspagehotelreviewcontent-minus-description">После принятия душа, лужа в санузле</p>
+                    <div class="zenroomspagereviews-item-tripadvisor-content">
+                      <div class="zenroomspagereviews-item-tripadvisor-content-inner">
+                        <div class="zenroomspagetacontent">
+                          <p class="zenroomspagetacontent-text"><?= $textComment ?></p>
                         </div>
                       </div>
                     </div>
-                    <div class="zenroomspagereviews-item-hotel-content-spoiler"></div>
                   </div>
-                </div>
-              </li>
-              <li class="zenroomspagereviews-item">
-                <div class="zenroomspagereviews-item-tripadvisor">
-                  <div class="zenroomspagereviews-item-tripadvisor-info">
-                    <div class="zenroomspagereviews-item-tripadvisor-info-author"><span class="zenroomspagereviews-item-tripadvisor-info-author-name">Светлана Е</span></div>
-                    <p class="zenroomspagereviews-item-tripadvisor-info-trip-type">семья</p>
-                    <p class="zenroomspagereviews-item-tripadvisor-info-date">май 2022</p>
-                  </div>
-                  <div class="zenroomspagereviews-item-tripadvisor-content">
-                    <div class="zenroomspagereviews-item-tripadvisor-content-total">
-                      <div class="zenroomspagereviews-item-tripadvisor-content-total-rating-logo"></div>
-                      <div class="zenroomspagereviews-item-tripadvisor-content-total-rating-value" style="background-image: url(&quot;https://www.tripadvisor.ru/img/cdsi/img2/ratings/traveler/s5.0-18579-5.svg&quot;);"></div>
-                      <div class="zenroomspagereviews-item-tripadvisor-content-total-info">
-                        <div class="zenroomspagereviews-item-tripadvisor-content-total-info-author"><span class="zenroomspagereviews-item-tripadvisor-content-total-info-author-name">Светлана Е</span></div>
-                        <p class="zenroomspagereviews-item-tripadvisor-content-total-info-date">май 2022</p>
-                      </div>
-                    </div>
-                    <div class="zenroomspagereviews-item-tripadvisor-content-inner">
-                      <div class="zenroomspagetacontent">
-                        <p class="zenroomspagetacontent-title">Братья Карамазовы - отличный отель недалеко от центра Питера</p>
-                        <p class="zenroomspagetacontent-text">Расположение отеля удобное, можно дойти пешком до Дворцовой площади, Эрмитажа, Невского. Сам отель на тихой, спокойной улице, спать можно с открытыми окнами. Персонал на удивление доброжелательный, ребята отличные, создаётся ощущение, что они действительно рады твоему приезду)) Завтраки нормальные, </p>
-                        <div class="zenroomspagetacontent-spoiler"></div>
-                      </div>
-                    </div>
-                    <div class="zenroomspagereviews-item-tripadvisor-content-spoiler">
-                      <div class="zen-spoiler zen-spoiler-fold zen-spoiler-close"><button class="zen-spoiler-button button-view-link button-size-s"><svg class="zen-spoiler-icon" width="16" height="12" viewBox="0 0 16 16">
-                            <path d="M10.9 14.62l6.15-6.14c.5-.5.5-1.31 0-1.81l-.18-.18a1.3 1.3 0 0 0-1.81 0L10 11.55 4.94 6.5c-.5-.5-1.32-.5-1.81 0l-.18.18c-.5.5-.5 1.31 0 1.81l6.14 6.14c.5.5 1.32.5 1.82 0"></path>
-                          </svg>
-                          <div class="zen-spoiler-label">Развернуть отзыв</div>
-                        </button></div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="zenroomspagereviews-item">
-                <div class="zenroomspagereviews-item-tripadvisor">
-                  <div class="zenroomspagereviews-item-tripadvisor-info">
-                    <div class="zenroomspagereviews-item-tripadvisor-info-author"><span class="zenroomspagereviews-item-tripadvisor-info-author-name">D8788CVekaterinap</span><span class="zenroomspagereviews-item-tripadvisor-info-author-flag zenroomspagereviews-item-tripadvisor-info-author-flag-at"></span></div>
-                    <p class="zenroomspagereviews-item-tripadvisor-info-trip-type">пара</p>
-                    <p class="zenroomspagereviews-item-tripadvisor-info-date">май 2022</p>
-                  </div>
-                  <div class="zenroomspagereviews-item-tripadvisor-content">
-                    <div class="zenroomspagereviews-item-tripadvisor-content-total">
-                      <div class="zenroomspagereviews-item-tripadvisor-content-total-rating-logo"></div>
-                      <div class="zenroomspagereviews-item-tripadvisor-content-total-rating-value" style="background-image: url(&quot;https://www.tripadvisor.ru/img/cdsi/img2/ratings/traveler/s4.0-18579-5.svg&quot;);"></div>
-                      <div class="zenroomspagereviews-item-tripadvisor-content-total-info">
-                        <div class="zenroomspagereviews-item-tripadvisor-content-total-info-author"><span class="zenroomspagereviews-item-tripadvisor-content-total-info-author-name">D8788CVekaterinap</span><span class="zenroomspagereviews-item-tripadvisor-content-total-info-author-flag zenroomspagereviews-item-tripadvisor-content-total-info-author-flag-at"></span></div>
-                        <p class="zenroomspagereviews-item-tripadvisor-content-total-info-date">май 2022</p>
-                      </div>
-                    </div>
-                    <div class="zenroomspagereviews-item-tripadvisor-content-inner">
-                      <div class="zenroomspagetacontent">
-                        <p class="zenroomspagetacontent-title">Отзыв</p>
-                        <p class="zenroomspagetacontent-text">Главный плюс этого отеля это персонал) все дружелюбны, готовы помочь. Отдельно хочу отметить чистоту отеля и номера👍🏻
-                          Теперь о минусах: очень не удобный матрац, в котором чувствуются пружины, невкусный завтрак, расположение относительно далеко от центра.
-                          На мой взгляд на заявленные 4 звёзды не тя</p>
-                        <div class="zenroomspagetacontent-spoiler"></div>
-                      </div>
-                    </div>
-                    <div class="zenroomspagereviews-item-tripadvisor-content-spoiler">
-                      <div class="zen-spoiler zen-spoiler-fold zen-spoiler-close"><button class="zen-spoiler-button button-view-link button-size-s"><svg class="zen-spoiler-icon" width="16" height="12" viewBox="0 0 16 16">
-                            <path d="M10.9 14.62l6.15-6.14c.5-.5.5-1.31 0-1.81l-.18-.18a1.3 1.3 0 0 0-1.81 0L10 11.55 4.94 6.5c-.5-.5-1.32-.5-1.81 0l-.18.18c-.5.5-.5 1.31 0 1.81l6.14 6.14c.5.5 1.32.5 1.82 0"></path>
-                          </svg>
-                          <div class="zen-spoiler-label">Развернуть отзыв</div>
-                        </button></div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="zenroomspagereviews-item">
-                <div class="zenroomspagereviews-item-tripadvisor">
-                  <div class="zenroomspagereviews-item-tripadvisor-info">
-                    <div class="zenroomspagereviews-item-tripadvisor-info-author"><span class="zenroomspagereviews-item-tripadvisor-info-author-name">_P6290QZ</span></div>
-                    <p class="zenroomspagereviews-item-tripadvisor-info-trip-type">семья</p>
-                    <p class="zenroomspagereviews-item-tripadvisor-info-date">май 2022</p>
-                  </div>
-                  <div class="zenroomspagereviews-item-tripadvisor-content">
-                    <div class="zenroomspagereviews-item-tripadvisor-content-total">
-                      <div class="zenroomspagereviews-item-tripadvisor-content-total-rating-logo"></div>
-                      <div class="zenroomspagereviews-item-tripadvisor-content-total-rating-value" style="background-image: url(&quot;https://www.tripadvisor.ru/img/cdsi/img2/ratings/traveler/s5.0-18579-5.svg&quot;);"></div>
-                      <div class="zenroomspagereviews-item-tripadvisor-content-total-info">
-                        <div class="zenroomspagereviews-item-tripadvisor-content-total-info-author"><span class="zenroomspagereviews-item-tripadvisor-content-total-info-author-name">_P6290QZ</span></div>
-                        <p class="zenroomspagereviews-item-tripadvisor-content-total-info-date">май 2022</p>
-                      </div>
-                    </div>
-                    <div class="zenroomspagereviews-item-tripadvisor-content-inner">
-                      <div class="zenroomspagetacontent">
-                        <p class="zenroomspagetacontent-title">Братья Карамазовы</p>
-                        <p class="zenroomspagetacontent-text">Отличный отель для туристического путешествия. Вкусные завтраки. Чистота в номере. Всё было отлично. Удачное расположение. До метро 10 пешим шагом. По близости море заведений где можно перекусить. Советуем данный отель</p>
-                        <div class="zenroomspagetacontent-spoiler"></div>
-                      </div>
-                    </div>
-                    <div class="zenroomspagereviews-item-tripadvisor-content-spoiler"></div>
-                  </div>
-                </div>
-              </li>
-              <li class="zenroomspagereviews-item">
-                <div class="zenroomspagereviews-item-hotel">
-                  <div class="zenroomspagereviews-item-hotel-info">
-                    <div class="zenroomspagereviews-item-hotel-info-author"><span class="zenroomspagereviews-item-hotel-info-author-name">Alexandr</span><span class="zenroomspagereviews-item-hotel-info-author-flag zenroomspagereviews-item-hotel-info-author-flag-ru"></span></div>
-                    <p class="zenroomspagereviews-item-hotel-info-trip-type">отдых, пара</p>
-                    <p class="zenroomspagereviews-item-hotel-info-date">апрель 2022</p>
-                    <p class="zenroomspagereviews-item-hotel-info-room-type">Двухместный номер Standard (двуспальная кровать), 3 ночи</p>
-                  </div>
-                  <div class="zenroomspagereviews-item-hotel-content">
-                    <div class="zenroomspagereviews-item-hotel-content-total">
-                      <div class="zenroomspagereviews-item-hotel-content-total-rating">
-                        <p class="zenroomspagereviews-item-hotel-content-total-rating-value zenroomspagereviews-item-hotel-content-total-rating-value-10">9,7</p>
-                        <p class="zenroomspagereviews-item-hotel-content-total-rating-description">Супер</p>
-                        <p class="zenroomspagereviews-item-hotel-content-total-rating-details-link link">Раскрыть детали</p>
-                      </div>
-                      <div class="zenroomspagereviews-item-hotel-content-total-info">
-                        <div class="zenroomspagereviews-item-hotel-content-total-info-author"><span class="zenroomspagereviews-item-hotel-content-total-info-author-name">Alexandr</span><span class="zenroomspagereviews-item-hotel-content-total-info-author-flag zenroomspagereviews-item-hotel-content-total-info-author-flag-ru"></span></div>
-                        <p class="zenroomspagereviews-item-hotel-content-total-info-date">апрель 2022</p>
-                      </div>
-                    </div>
-                    <div class="zenroomspagereviews-item-hotel-content-inner">
-                      <div class="zenroomspagehotelreviewcontent">
-                        <div class="zenroomspagehotelreviewcontent-reviews">
-                          <p class="zenroomspagehotelreviewcontent-plus-title">Что было хорошо</p>
-                          <p class="zenroomspagehotelreviewcontent-plus-description">Завтраки очень вкусные</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="zenroomspagereviews-item-hotel-content-spoiler"></div>
-                  </div>
-                </div>
-              </li>
+                </li>
+              <?php
+              }
+              ?>
             </ul>
-            <div class="zenroomspagereviews-buttons"><a class="zenroomspagereviews-button-expand button-view-light button-size-s" href="https://www.tripadvisor.com/Hotel_Review-g298507-d503408-Reviews-The_Brothers_Karamazov_Hotel-St_Petersburg_Northwestern_District.html?m=18579" target="_blank">Показать больше отзывов</a></div>
           </div>
         </div>
       </div>

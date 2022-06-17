@@ -1,11 +1,9 @@
 <?php
-    //Запускаем сессию
     session_start();
  
     unset($_SESSION["email_user"]);
     unset($_SESSION["password_user"]);
-     
-    // Возвращаем пользователя на ту страницу, на которой он нажал на кнопку выход.
+    unset($_SESSION['id_user']);
     header("HTTP/1.1 301 Moved Permanently");
     header("Location: http://localhost/hotel_system/");
 ?>

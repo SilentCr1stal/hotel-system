@@ -5,12 +5,6 @@ require_once '../public/templates/head.php';
 ?>
 
 <div class="wrapper__contentPage">
-    <?php
-    //Проверяем, если пользователь не авторизован, то выводим форму регистрации, 
-    //иначе выводим сообщение о том, что он уже зарегистрирован
-    // if (!isset($_SESSION["email_user"]) && !isset($_SESSION["password_user"])) {
-    // }
-    ?>
     <div class="container">
         <h2>Регистрация</h2>
         <form action="./register.php" method="POST" name="form_register">
