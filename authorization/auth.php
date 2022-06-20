@@ -3,6 +3,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 require_once '../connect.php';
 session_start();
+$_SESSION['error'] = '';
 
 if (isset($_POST["btn_submit_auth"]) && !empty($_POST["btn_submit_auth"])) {
 
@@ -66,7 +67,7 @@ if (isset($_POST["btn_submit_auth"]) && !empty($_POST["btn_submit_auth"])) {
     header("HTTP/1.1 301 Moved Permanently from 65 line");
     header("Location: http://localhost/hotel_system/index.php");
   } else {
-
+    $_SESSION['error'] = 'Пользователя с такой почтой и паролем не существует';
     header("HTTP/1.1 301 Moved Permanently from 69 line");
     header("Location: http://localhost/hotel_system/authorization/form_auth.php");
 

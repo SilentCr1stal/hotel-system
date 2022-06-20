@@ -13,7 +13,6 @@ if ($row['role_user'] == 2) {
 ?>
   <table style="margin: 50px auto 0 auto;">
     <tbody>
-
       <tr>
         <td style="padding: 5px 10px; border: 1px solid black">
           ID пользователя
@@ -75,7 +74,7 @@ if ($row['role_user'] == 2) {
               <input name="id_room" value="<?= $rowBooking['id_room'] ?>" style="display: none;">
             </td>
             <td style="padding: 5px 10px; border: 1px solid black">
-              <button type="submit">Удалить пользователя из системы</button>
+              <button id="drop_user" type="submit">Удалить пользователя из системы</button>
             </td>
           </tr>
         </form>
@@ -143,7 +142,7 @@ if ($row['role_user'] == 2) {
           ?>
         </td>
         <td style="padding: 5px 10px; border: 1px solid black">
-          <?= $rowBooking ? '<a href="./remove_booking.php">Отменить бронирование</a>' : '' ?>
+          <?= $rowBooking ? '<a href="./remove_booking.php">Отменить бронирование</a>' : '<a href="./remove_booking.php"></a>' ?>
         </td>
       </tr>
     </tbody>

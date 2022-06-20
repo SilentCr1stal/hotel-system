@@ -1,16 +1,17 @@
 <?php
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
+session_start();
 require_once '../public/templates/head.php';
 ?>
 
 <div class="wrapper__contentPage">
-    <div class="container">
+    <div class="container" style="text-align: center;">
         <h2>Регистрация</h2>
         <form action="./register.php" method="POST" name="form_register">
             <div class="input-group">
                 <div class="inset">
-                    <input autocomplete="off" id="name" type="text" name="fullName_user" required />
+                    <input autocomplete="off" id="name" type="text" name="fullName_user" required value="Name test"/>
                     <label class="input-label" for="name">
                         <span class="input-label-content">Имя</span>
                     </label>
@@ -34,7 +35,7 @@ require_once '../public/templates/head.php';
             </div>
             <div class="input-group">
                 <div class="inset">
-                    <input autocomplete="off" id="password" type="password" name="password_user" required />
+                    <input autocomplete="off" id="password" type="password" name="password_user" required value="test"/>
                     <label class="input-label" for="password">
                         <span class="input-label-content">Пароль</span>
                     </label>
@@ -44,10 +45,11 @@ require_once '../public/templates/head.php';
                 <input type="submit" name="btn_submit_register" value="Регистрация" id="submit__btn" style="width: 100%; height: 100%;">
             </div>
         </form>
+        <span style="color: #f45a5a;"><?= $_SESSION['error'] ? $_SESSION['error'] : '' ?></span>
         <a class="login-link" href=<?= $address."/authorization/form_auth.php"?>>Я уже зарегистрирован</a>
     </div>
 
     <?php
-    //Подключение подвала
+    unset($_SESSION['error']);
     require_once("../public/templates/footer.php");
     ?>
