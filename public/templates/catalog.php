@@ -154,7 +154,6 @@
               <div class="card card-card_discount card-card_border" style="border: none; margin: 5px 0 0 0;">
                 <div class="card-inner">
                   <div class="card-discount">
-                    <!-- <span class="value">Cкидка discount% </span> -->
                   </div>
                   <div class="card-info">
                     <span class="card-stars">

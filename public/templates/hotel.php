@@ -376,6 +376,10 @@ $yearHotel = $row['year_hotel'];
     $resultFeedback = mysqli_query($link, $queryFeedback);
     $rowFeedback = mysqli_fetch_assoc($resultFeedback);
     ?>
+    <?php
+    $queryComments = 'Select * from comments where id_hotel = ' . $idHotel;
+    $resultComments = mysqli_query($link, $queryComments);
+    ?>
     <div class="zenroomspagereviews-wrapper" id="feedback">
       <div class="zenroomspagereviews">
         <div class="zenroomspagereviews-content">
@@ -390,13 +394,9 @@ $yearHotel = $row['year_hotel'];
               </ul>
             </div>
             <form action="./add_comment.php" method="post">
-              <textarea name="textComment" rows="5" placeholder="Оставить отзыв" required style="width: 100%; resize: none;"></textarea>
-              <button type="submit">Отправить</button>
+              <?= mysqli_fetch_assoc($resultComments) ? '<textarea name="textComment" rows="5" placeholder="Оставить отзыв" required style="width: 100%; resize: none;"></textarea>' : '' ?>
+              <?= $_SESSION['role_user'] != 2 ? '<button type="submit">Отправить</button>' : '' ?>
             </form>
-            <?php
-            $queryComments = 'Select * from comments where id_hotel = ' . $idHotel;
-            $resultComments = mysqli_query($link, $queryComments);
-            ?>
             <ul class="zenroomspagereviews-list">
               <?php
               for (; $rowComments = mysqli_fetch_assoc($resultComments);) {

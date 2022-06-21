@@ -48,13 +48,11 @@ if (isset($_POST["btn_submit_auth"]) && !empty($_POST["btn_submit_auth"])) {
   $result = mysqli_query($link, $query);
   $row = mysqli_fetch_assoc($result);
 
-  //Проверяем, если в базе нет пользователя с такими данными, то выводим сообщение об ошибке
   if (!empty($row)) {
-
-    // Если введенные данные совпадают с данными из базы, то сохраняем логин и пароль в массив сессий.
     $_SESSION['email_user'] = $email_user;
     $_SESSION['password_user'] = $password_user;
     $_SESSION['id_user'] = $row['id_user'];
+    $_SESSION['role_user'] = $row['role_user'];
 
     $query = 'Select * from booking where id_user = '.$row['id_user'];
     $result = mysqli_query($link, $query);

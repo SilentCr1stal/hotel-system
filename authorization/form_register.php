@@ -11,7 +11,7 @@ require_once '../public/templates/head.php';
         <form action="./register.php" method="POST" name="form_register">
             <div class="input-group">
                 <div class="inset">
-                    <input autocomplete="off" id="name" type="text" name="fullName_user" required value="Name test"/>
+                    <input autocomplete="off" id="name" type="text" name="fullName_user" required/>
                     <label class="input-label" for="name">
                         <span class="input-label-content">Имя</span>
                     </label>
@@ -35,7 +35,7 @@ require_once '../public/templates/head.php';
             </div>
             <div class="input-group">
                 <div class="inset">
-                    <input autocomplete="off" id="password" type="password" name="password_user" required value="test"/>
+                    <input autocomplete="off" id="password" type="password" name="password_user" required/>
                     <label class="input-label" for="password">
                         <span class="input-label-content">Пароль</span>
                     </label>
